@@ -44,9 +44,9 @@ function mainFunction(data) {
                   <p>${episode.length} episódios</p>
               </ul>
 
-            </div>`
-      )
-      .join("");
+            </div>
+          `
+      ).join("");
 
     cards.innerHTML = "";
     cards.innerHTML += genericCards;
