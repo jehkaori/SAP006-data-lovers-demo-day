@@ -25,20 +25,26 @@ function mainFunction(data) {
   function printCardsGeneric(filterChosen) {
     genericCards = filterChosen
       .map(
-        ({ name, status, gender, image, episode }) =>
-          `<div class="cards_container">
-         <div class="character_img">
-           <img src="${image}">
-         </div>
-          <div class="character_info">
-          <span id="character_name">
-            <h3>${name}</h3>
-           </span>
-           <span id="character_status">${status} - ${gender}</span>
-           <span id="episodes">Episódios</span>
-             <p>${episode.map((i) => i.replaceAll(/[^0-9]/g, " "))}</p>
-          </div>
-      </div>`
+        ({ name, status, gender, image, episode, location, species, origin }) =>
+          `
+            <div class="cards_container">
+              <div class="character_img">
+                <img src="${image}">
+              </div>
+              
+              <ul class="front-text-card">
+                <li><strong>Nome:</strong>${name}</li>
+                <li><strong>Gênero:</strong>${gender}</li>      
+                <li><strong>Status:</strong>${status}</li>
+                <li><strong>Espécie:</strong>${species}</li>
+                <li><strong>Origem:</strong>${origin.name}</li>
+                <li><strong>Localização:</strong></li>
+                  <p> ${location.name} </p>
+                  <h4> Aparece em: </h4>
+                  <p>${episode.length} episódios</p>
+              </ul>
+
+            </div>`
       )
       .join("");
 
