@@ -16,6 +16,8 @@ function mainFunction(data) {
 
   const statusFilter = document.getElementById("status-filter");
   const genderFilter = document.getElementById("gender-filter");
+  const specieFilter = document.getElementById("specie-filter");
+
 
   const printTotalCharacters = document.getElementById("totalCharacters");
   const printGenderAverage = document.getElementById("genderAverage");
@@ -79,11 +81,14 @@ function mainFunction(data) {
     e.preventDefault();
     const statusOptions = statusFilter.options[statusFilter.selectedIndex].value;
     const genderOptions = genderFilter.options[genderFilter.selectedIndex].value;
-    const filterValue = filterData(data.results, statusOptions, genderOptions);
+    const specieOptions = specieFilter.options[specieFilter.selectedIndex].value;
+    const filterValue = filterData(data.results, statusOptions, genderOptions, specieOptions);
     printCardsGeneric(filterValue);
+    console.log(filterValue);
   }
   statusFilter.addEventListener("change", filter);
   genderFilter.addEventListener("change", filter);
+  specieFilter.addEventListener("change", filter);
 
   function sort(e) {
     e.preventDefault();
@@ -97,6 +102,7 @@ function mainFunction(data) {
     printCardsGeneric(data.results);
     statusFilter.options[(statusFilter.selectedIndex = 0)];
     genderFilter.options[(genderFilter.selectedIndex = 0)];
+    specieFilter.options[(specieFilter.selectedIndex = 0)];
   }
   btnClear.addEventListener("click", clearFilters);
 
