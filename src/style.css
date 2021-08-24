@@ -112,17 +112,35 @@ input,
   appearance: none;
 }
 
-.container,
-.cards,
+/* .container,
+
 .statistic {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+} */
+
+.cards{
+  display: flex;
+  flex-flow: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 4vh;
 }
 
 .cards_container {
-  display: flex;
+    margin: 3vh;
+    border-style: solid;
+    border-radius: 9px;
+    border-color: #9ddb17; 
+    font-weight: bold;
+    box-shadow: 10px 10px 10px #81b316cb;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+  
+  /* display: flex;
   flex-direction: row;
   margin: 18px;
   position: relative;
@@ -132,17 +150,36 @@ input,
   max-width: 480px;
   max-height: 100%;
   border-radius: 10px;
-  background-color: #E3DDE0;
+  background-color: #E3DDE0; */
 }
 
-img,
+.cards_container:hover  {
+  transform: rotateY(180deg);
+}
+
+.character_img, .character_info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.character_info {
+  transform: rotateY(180deg);
+  background-color: #9ABF4B;
+  box-shadow: 10px 10px 10px #11283b;
+}
+
+
+
+/* img,
 .character_img {
   max-height: 100%;
   max-width: 100%;
   border-radius: 10px;
   height: 245px;
   width: auto;
-}
+} */
 
 img {
   border-radius: 10px 0 0 10px;
@@ -160,7 +197,7 @@ h3 {
   font-weight: 600;
 }
 
-#character_name,
+/* #character_name,
 #character_status,
 #character_gender,
 #episodes,
@@ -169,15 +206,14 @@ p {
   font-weight: 400;
   margin: 0;
   text-align: center;
-}
+} */
 
 p {
   font-size: 16px;
 }
 
 #episodes {
-  margin-top: 10px;
-  font-weight: 600;
+  padding: 0.3vh;
 }
 
 .stats {

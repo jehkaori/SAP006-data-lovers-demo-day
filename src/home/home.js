@@ -60,17 +60,18 @@ export const Home = () => {
     genericCards = filterChosen
         .map(
         ({ name, status, gender, image, episode }) =>
-            `<div class="cards_container">
-        <div class="character_img">
-            <img src="${image}">
-        </div>
+        `<div class="cards_container">
+            <div class="character_img">
+                <img src="${image}">
+                <h3>${name}</h3>
+            </div>
             <div class="character_info">
-            <span id="character_name">
-            <h3>${name}</h3>
-            </span>
-            <span id="character_status">${status} - ${gender}</span>
-            <span id="episodes">Episódios</span>
-            <p>${episode.map((i) => i.replaceAll(/[^0-9]/g, " "))}</p>
+                <span id="character_name">
+                <h3>${name}</h3>
+                </span>
+                <span id="character_status">${status} - ${gender}</span>
+                <span id="episodes">Episódios</span>
+                <p>${episode.map((i) => i.replaceAll(/[^0-9]/g, " "))}</p>
             </div>
         </div>`
         )
