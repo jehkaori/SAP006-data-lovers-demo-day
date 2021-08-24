@@ -130,7 +130,15 @@ input,
 }
 
 .cards_container {
-    margin: 3vh;
+
+  margin: 5%;
+  /* flex: 1; */
+  height: 20%; 
+  min-width: 400px;
+  max-width: 480px;
+  max-height: 100%;
+  
+  background-color: #E3DDE0;
     border-style: solid;
     border-radius: 9px;
     border-color: #9ddb17; 
