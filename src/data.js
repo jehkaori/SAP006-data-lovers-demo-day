@@ -1,7 +1,9 @@
-export const filterData = (data, statusParameter, genderParameter) => {
+export const filterData = (data, statusParameter, genderParameter, speciesParameter) => {
   const bothFiltersAreChosen = statusParameter !== "" && genderParameter !== "";
   const genderParameterIsNotEmpty = genderParameter !== "";
   const statusParameterIsNotEmpty = statusParameter !== "";
+  const speciesParameterIsNotEmpty = speciesParameter !== "";
+
 
   let filterResults = "";
 
@@ -20,12 +22,24 @@ export const filterData = (data, statusParameter, genderParameter) => {
     return filterResults;
   }
 
+  if (speciesParameterIsNotEmpty) {
+    filterResults = data.filter(results => results.species === speciesParameter);
+    return filterResults;
+  }
+
   else {
     return false
   }
 };
 
-// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
+//////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
+export const ordemAlfabetica = (data, order) => {
+  if (order === "AZ") {
+    return data.sort((a, z) => a.name > z.name ? 1 : -1)
+  } else {
+    return data.sort((a, z) => a.name > z.name ? -1 : 1)
+  } 
+};
 
 export const computeStats = {
 
@@ -50,11 +64,4 @@ export const searchName = (data, condition) => {
   return searchResults;
 }
 
-//////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
-export const ordemAlfabetica = (data, order) => {
-  if (order === "AZ") {
-    return data.sort((a, z) => a.name > z.name ? 1 : -1)
-  } else {
-    return data.sort((a, z) => a.name > z.name ? -1 : 1)
-  } 
-};
+// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
