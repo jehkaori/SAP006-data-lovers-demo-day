@@ -1,5 +1,5 @@
 import { computeStats, filterData, sortData, searchName } from "../data.js";
-// import { navigation } from '../routes/navigation.js';
+import { navigation } from '../routes/navigation.js';
 
 export const Home = () => {
     const rootElement = document.createElement('div');
@@ -7,6 +7,7 @@ export const Home = () => {
      <h1>
        <img src="./img/iconTitle.png" alt="Rick and Morty">
      </h1>
+     <button id="about">Sobre</button>
     <form class="menu-filter">
         <input type="search" placeholder="Pesquisar" id="search" />
         <button id="sort-btn" class="sort">Personagens Principais</button>
@@ -39,6 +40,11 @@ export const Home = () => {
         .then(data => {
             mainFunction(data)
         })
+
+    rootElement.querySelector('#about').addEventListener('click', (e) => {
+        e.preventDefault();
+        navigation('/About')
+    });
 
     function mainFunction(data) {
 

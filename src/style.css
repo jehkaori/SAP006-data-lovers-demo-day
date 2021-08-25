@@ -8,6 +8,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --orange-color: #f27f3d;
+  --light-green-color: #9abf4b;
+  --aquamarine-color: #0aa689;
+  --blue-color: #0a5da6;
+  --yellow-color: #f9f075;
+  --white-color: #ffff;
+}
+
 main {
   margin: 15px;
 }
@@ -33,7 +42,7 @@ h1 {
 }
 
 option {
-  color: #221C20;
+  color: #221c20;
   font-size: 18px;
 }
 
@@ -73,7 +82,7 @@ input,
   border-radius: 20px;
   width: 150px;
   height: 45px;
-  background: #221C20;
+  background: #221c20;
   border: 1px solid #87f583;
   color: white;
 }
@@ -89,12 +98,13 @@ input,
 #btn-clearFilters {
   width: 100px;
   border-radius: 20px;
-  color: #221C20;
+  color: #221c20;
   background: #87f583;
   border: 1px solid #87f583;
 }
 
-#btn-clearFilters:hover, #sort-btn:hover {
+#btn-clearFilters:hover,
+#sort-btn:hover {
   background: #05f2af;
   border: 1px solid #05f2af;
   transition-duration: 0.5s;
@@ -132,7 +142,7 @@ input,
   max-width: 480px;
   max-height: 100%;
   border-radius: 10px;
-  background-color: #E3DDE0;
+  background-color: #e3dde0;
 }
 
 img,
@@ -191,9 +201,10 @@ span {
   font-weight: 600;
 }
 
-#totalCharacters, #genderAverage {
+#totalCharacters,
+#genderAverage {
   border-radius: 20px;
-  background: #221C20;
+  background: #221c20;
   border: 1px solid;
   margin: 5px;
   padding: 5px;
@@ -203,6 +214,9 @@ span {
   color: #e3dde0;
 }
 
+.about-text {
+  color: var(--white-color);
+}
 
 @media (max-width: 901px) {
   .cards_container {
@@ -221,13 +235,16 @@ span {
     flex-wrap: wrap;
   }
 
-  #genderAverage, #totalCharacter, p {
+  #genderAverage,
+  #totalCharacter,
+  p {
     text-align: center;
     margin: 8px 0;
     font-size: 16px;
   }
 
-  #totalCharacters, #genderAverage{
+  #totalCharacters,
+  #genderAverage {
     max-width: 378px;
     max-height: 132px;
     min-width: 256px;
@@ -256,10 +273,10 @@ span {
   }
 
   h1 img {
-      margin: 30px 0;
-      font-size:50px;
-      height: auto;
-      width: auto;
+    margin: 30px 0;
+    font-size: 50px;
+    height: auto;
+    width: auto;
   }
 
   .menu-filter {
@@ -286,16 +303,16 @@ span {
     position: relative;
     right: 5px;
   }
-
 }
 
 @media (max-width: 320px) {
   h1 {
     margin: 30px 0;
-    font-size:50px;
+    font-size: 50px;
   }
 
-  #genderAverage, #totalCharacter {
+  #genderAverage,
+  #totalCharacter {
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
@@ -305,7 +322,8 @@ span {
     align-content: center;
   }
 
-  #sort-btn, input {
+  #sort-btn,
+  input {
     position: relative;
     right: 0;
     left: 0;
