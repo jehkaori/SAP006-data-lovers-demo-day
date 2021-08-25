@@ -25,7 +25,7 @@ export const filterData = (data, statusParameter, genderParameter) => {
   }
 };
 
-export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
+// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
 
 export const computeStats = {
 
@@ -49,3 +49,12 @@ export const searchName = (data, condition) => {
   const searchResults = data.filter(n => n.name.toLowerCase().includes(condition.toLowerCase()));
   return searchResults;
 }
+
+//////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
+export const ordemAlfabetica = (data, order) => {
+  if (order === "AZ") {
+    return data.sort((a, z) => a.name > z.name ? 1 : -1)
+  } else {
+    return data.sort((a, z) => a.name > z.name ? -1 : 1)
+  } 
+};
