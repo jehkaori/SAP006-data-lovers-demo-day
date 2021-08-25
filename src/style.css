@@ -1,26 +1,23 @@
-
-/* variaveis cores novas */
-:root{
-  --cor1: #F27F3D;
-  --cor2: #9ABF48;
-  --cor3: #0AA689;
-  --cor4: #0A5DA6;
-  --cor5: #F9F075;
-  --corfiltros: #221C20;
+:root {
+  --orange-color: #f27f3d;
+  --light-green: #9abf48;
+  --aquamarine-color: #0aa689;
+  --blue-color: #0a5da6;
+  --yellow-color: #f9f075;
+  --dark-color: #221c20;
+  --background-blue-color: #002c52;
+  --white-color: #ffff;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--cor3); /*testando variaveis*/
+  background-color: var(--background-blue-color);
   box-sizing: border-box;
   height: 100vh;
-  font-family: monospace;
+  font-family: monospace, sans-serif;
 }
-
-/* main {
-  margin: 15px;
-} */
 
 header {
   align-items: center;
@@ -28,25 +25,28 @@ header {
   flex-wrap: wrap;
 }
 
-.item{
+.item {
   margin-top: 5%;
   text-align: center;
 }
 
-.portal-welcome{
+.portal-welcome {
   transition: opacity 500ms;
 }
 
-.portal-welcome:hover{
-  -webkit-transform:scale(1.2);
-  transform:scale(2);
+.portal-welcome:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(2);
 }
 
-h1 {
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  margin: 0 0 40px 0;
+.header-logo {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.Logo {
+  width: 30rem;
 }
 
 .menu-filter {
@@ -54,10 +54,33 @@ h1 {
   align-content: center;
   align-items: center;
   justify-content: space-evenly;
+  background: var(--light-green);
+}
+
+.status-filter,
+.gender-filter,
+.specie-filter,
+.order-filter,
+.btn-principais {
+  color: var(--white-color);
+  font-size: 1.24rem;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-align-last: center;
+}
+
+.btn-clearfilter {
+  background: var(--white-color);
+  color: var(--background-blue-color);
+  padding: 12px;
+  width: 8rem;
+  border-radius: 20px;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 option {
-  color: var(--corfiltros);
+  color: var(--dark-color);
   font-size: 18px;
 }
 
@@ -65,19 +88,14 @@ input,
 select,
 button {
   margin: 10px;
-  outline: none;
   border: none;
-  text-align: center;
+  outline: none;
   font-size: 16px;
 }
 
 select,
 button {
-  width: 10%;
-  height: 25px;
   background: transparent;
-  color: #e3dde0;
-  cursor: pointer;
 }
 
 select:hover {
@@ -86,37 +104,17 @@ select:hover {
   transition: 0.5s;
 }
 
-input {
-  position: relative;
-  right: 20px;
-  font-size: 18px;
-}
-
-.container-search{
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2%;
-}
-
-.search{
-  width: 50%;
-  height: 50px;
+.search {
+  width: 20%;
+  height: 40px;
   text-align: left;
   padding-left: 3%;
-}
-
-input,
-.sort {
-  border-radius: 20px;
-  width: 150px;
-  height: 45px;
-  background: #221c20;
-  border: 1px solid #87f583;
-  color: white;
-
+  border-radius: 1.25rem;
+  background: var(--background-blue-color);
+  opacity: 45%;
+  padding: 20px;
+  color: var(--white-color);
+  font-size: 20px;
 }
 
 .sort {
@@ -135,7 +133,8 @@ input,
   border: 1px solid #87f583;
 }
 
-.btn-limpar:hover, .sort:hover {
+.btn-limpar:hover,
+.sort:hover {
   background: #05f2af;
   border: 1px solid #05f2af;
   transition-duration: 0.5s;
@@ -153,7 +152,7 @@ input,
   appearance: none;
 }
 
-.cards{
+.cards {
   display: flex;
   flex-flow: wrap;
   align-content: center;
@@ -161,7 +160,7 @@ input,
   margin-bottom: 4vh;
 }
 
-.cards_container{
+.cards_container {
   margin: 3vh;
   border-style: solid;
   border-radius: 9px;
@@ -173,12 +172,12 @@ input,
   position: relative;
 }
 
-
-.cards_container:hover  {
+.cards_container:hover {
   transform: rotateY(180deg);
 }
 
-.character_img, .back-text-card {
+.character_img,
+.back-text-card {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -250,11 +249,10 @@ span {
   color: #e3dde0;
 }
 
-@media (min-width: 992px){
-
-  .cards_container  {
+@media (min-width: 992px) {
+  .cards_container {
     width: 25%;
-    height: 60vh
+    height: 60vh;
   }
 
   .character_img img {
@@ -264,9 +262,9 @@ span {
   }
 }
 
-.footer{
+.footer {
   padding: 1%;
-  background: #084D6E;
+  background: #084d6e;
   color: white;
   font-size: 20pt;
   text-align: center;
@@ -274,7 +272,6 @@ span {
   bottom: 0;
   position: fixed;
 }
-
 
 @media (max-width: 901px) {
   .cards_container {
@@ -392,4 +389,3 @@ span {
     flex-direction: column;
   }
 }
-
