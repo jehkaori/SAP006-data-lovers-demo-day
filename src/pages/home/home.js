@@ -67,7 +67,7 @@ export const Home = () => {
 
     rootElement.querySelector('#about').addEventListener('click', (e) => {
         e.preventDefault();
-        navigation('/About')
+        navigation('/about')
     });
     function mainFunction(data) {
 
@@ -179,7 +179,7 @@ export const Home = () => {
 
     }
     return rootElement
-}
+};
             // const btnSort = document.getElementById("sort-btn");
 /* function sort(e) {
     e.preventDefault();

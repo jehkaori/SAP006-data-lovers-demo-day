@@ -14,7 +14,7 @@ export const About = () => {
 
   container.querySelector('#back-btn').addEventListener('click', (e) => {
     e.preventDefault();
-    navigation('/Home');
+    navigation('/home');
   });
 
 
