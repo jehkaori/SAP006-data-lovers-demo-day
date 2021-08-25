@@ -1,4 +1,8 @@
 import { computeStats, filterData, searchName, ordemAlfabetica } from "./data.js";
+import { routeRender } from './routes/render.js';
+
+window.addEventListener('popstate', routeRender);
+window.addEventListener('load', routeRender);
 
 fetch("./data/rickandmorty/rickandmorty.json")
   .then(response => response.json())
