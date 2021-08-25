@@ -6,7 +6,7 @@ notFound.innerHTML = `não encontrado`;
 
 export const routes = {
   '/': Portal,
-  '/home': Home,
-  '/about': About,
+  '/Home': Home,
+  '/About': About,
   notfound: () => notFound
 };

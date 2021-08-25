@@ -6,7 +6,7 @@ export const Home = () => {
     rootElement.innerHTML = `  
         <div class="header-logo">
             <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
-            <button id="about">Sobre</button>
+            <button id="about" class="about-btn">SOBRE A SÉRIE</button>
         </div>
         <form class="menu-filter">
             <input class="search" type="search" placeholder="Pesquisar personagens" id="search" />
