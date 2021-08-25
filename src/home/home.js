@@ -11,7 +11,7 @@ export const Home = () => {
         <form class="menu-filter">
             <input type="search" placeholder="Pesquisar" id="search" />
             <button id="sort-btn" class="sort">Personagens Principais</button>
-            
+
             <select name="filter" id="status-filter">
                 <option class="status" value="" selected disabled;>STATUS</option>
                 <option value="Alive">&#128147; Vivo</option>
@@ -46,7 +46,7 @@ export const Home = () => {
             <select name="filter" id="order-filter">
                 <option value="" selected disabled;>ORDEM</option>
                 <option value="AZ">&#8635; A-Z</option>
-                <option value="ZA">&#8634; Z-A</option>      
+                <option value="ZA">&#8634; Z-A</option>
             </select>
             <button id="btn-clearFilters" type="submit">LIMPAR</button>
         </form>
@@ -75,17 +75,17 @@ export const Home = () => {
             let genericCards = "";
             const btnClear = document.getElementById("btn-clearFilters");
             const searchInput = document.getElementById("search");
-          
+
             const statusFilter = document.getElementById("status-filter");
             const genderFilter = document.getElementById("gender-filter");
             const specieFilter = document.getElementById("specie-filter");
             const btnOrder = document.getElementById("order-filter");
-          
+
             const printTotalCharacters = document.getElementById("totalCharacters");
             const printGenderAverage = document.getElementById("genderAverage");
-          
+
             printCardsGeneric(data.results);
-          
+
             function printCardsGeneric(filterChosen) {
               genericCards = filterChosen
                 .map(
@@ -96,10 +96,10 @@ export const Home = () => {
                           <img src="${image}">
                           <h3>${name}</h3>
                         </div>
-                        
+
                         <ul class="front-text-card">
                           <li><strong>Nome:</strong>${name}</li>
-                          <li><strong>Gênero:</strong>${gender}</li>      
+                          <li><strong>Gênero:</strong>${gender}</li>
                           <li><strong>Status:</strong>${status}</li>
                           <li><strong>Espécie:</strong>${species}</li>
                           <li><strong>Origem:</strong>${origin.name}</li>
@@ -108,38 +108,38 @@ export const Home = () => {
                             <h4> Aparece em: </h4>
                             <p>${episode.length} episódios</p>
                         </ul>
-          
+
                       </div>
                     `
                 ).join("");
-          
+
               cards.innerHTML = "";
               cards.innerHTML += genericCards;
             }
-          
-          
+
+
             const totalCharacters = computeStats.characters(data.results);
-          
+
             printTotalCharacters.innerHTML =
               `<p class="text">O total de personagens da série é:
               <p class="numberOfCharacters">${totalCharacters}</p>
              </p>`;
-          
+
             const maleAverage = computeStats.gender(data.results, "Male") + "%";
             const femaleAverage = computeStats.gender(data.results, "Female") + "%";
             const genderlessAverage = computeStats.gender(data.results, "Genderless") + "%";
             const unknownAverage = computeStats.gender(data.results, "unknown") + "%";
-          
+
             printGenderAverage.innerHTML =
               `
                 <p class="text">&ensp;<p>Médias:</p>&ensp;
-                Masculinos: <p>${maleAverage}</p> &ensp;| &ensp;  
+                Masculinos: <p>${maleAverage}</p> &ensp;| &ensp;
                 Femininos: <p>${femaleAverage}</p> &ensp;| &ensp;
                 Desconhecidos: <p>${unknownAverage}</p>&ensp; | &ensp;
                 Sem gênero: <p>${genderlessAverage}</p> &ensp;
                 </p>
             `;
-          
+
             function filter(e) {
               e.preventDefault();
               const statusOptions = statusFilter.options[statusFilter.selectedIndex].value;
@@ -148,7 +148,7 @@ export const Home = () => {
               const filterValue = filterData(data.results, statusOptions, genderOptions, specieOptions);
               printCardsGeneric(filterValue);
             }
-          
+
             function clearFilters(e) {
               e.preventDefault();
               printCardsGeneric(data.results);
@@ -157,25 +157,26 @@ export const Home = () => {
               specieFilter.options[(specieFilter.selectedIndex = 0)];
               btnOrder.options[(btnOrder.selectedIndex = 0)];
             }
-          
+
             function searchByName(e) {
               const charactersByName = searchName(data.results, e.target.value);
               printCardsGeneric(charactersByName);
             }
-          
+
             //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
             function imprimirFiltroOrdem(e) {
               const order = ordemAlfabetica(data.results, e.target.value)
               printCardsGeneric(order);
             }
-          
+
             statusFilter.addEventListener("change", filter);
             genderFilter.addEventListener("change", filter);
             specieFilter.addEventListener("change", filter);
             btnClear.addEventListener("click", clearFilters);
             searchInput.addEventListener("keyup", searchByName);
             btnOrder.addEventListener("change", imprimirFiltroOrdem);
-        }
+
+          }
           return rootElement
 }
             // const btnSort = document.getElementById("sort-btn");
