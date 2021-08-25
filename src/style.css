@@ -12,15 +12,10 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--cor3); /*testando variaveis*/
+  background-color: var(--cor4); /*testando variaveis*/
   box-sizing: border-box;
-  height: 100vh;
   font-family: monospace;
 }
-
-/* main {
-  margin: 15px;
-} */
 
 header {
   align-items: center;
@@ -28,13 +23,15 @@ header {
   flex-wrap: wrap;
 }
 
-.item{
-  margin-top: 5%;
+ .item{
+  /* margin-top: 5%; */
   text-align: center;
+  /* background-color: #221C20; */
 }
 
 .portal-welcome{
-  transition: opacity 500ms;
+  /* transition: opacity 500ms; */
+  width: 50%
 }
 
 .portal-welcome:hover{
@@ -320,9 +317,14 @@ span {
   }
 
   img {
-    height: 200px;
-    width: 250px;
+    height: 65%;
+    width: 65%;
     border-radius: 10px 10px 0 0;
+  }
+
+  .portal-welcome:hover{
+    -webkit-transform:scale(1.2);
+    transform:scale(2);
   }
 
   header {
