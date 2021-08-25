@@ -10,7 +10,7 @@ export const Home = () => {
         </div>
         <form class="menu-filter">
             <input class="search" type="search" placeholder="Pesquisar personagens" id="search" />
-            <button class="btn-principais" id="sort-btn" class="sort">PERSONAGENS PRINCIPAIS</button>
+            <button class="sort-characters" id="sort-btn" class="sort">PERSONAGENS PRINCIPAIS</button>
 
             <select class="status-filter" name="filter" id="status-filter">
                 <option class="status" value="" selected disabled;>STATUS</option>
@@ -91,26 +91,27 @@ export const Home = () => {
                 .map(
                     ({ name, status, gender, image, episode, location, species, origin }) =>
                         `
-                      <div class="cards_container">
-                        <div class="character_img">
-                          <img src="${image}">
-                          <h3>${name}</h3>
-                        </div>
-
-                        <ul class="front-text-card">
-                          <li><strong>Nome:</strong>${name}</li>
-                          <li><strong>Gênero:</strong>${gender}</li>
-                          <li><strong>Status:</strong>${status}</li>
-                          <li><strong>Espécie:</strong>${species}</li>
-                          <li><strong>Origem:</strong>${origin.name}</li>
-                          <li><strong>Localização:</strong></li>
-                            <p> ${location.name} </p>
-                            <h4> Aparece em: </h4>
-                            <p>${episode.length} episódios</p>
-                        </ul>
-
+                    <div class="cards_container">
+                      <div class="front-card">
+                        <img class='img-character' src="${image}">
+                        <h3  class='name'>${name}</h3>
+                        
                       </div>
-                    `
+                      <div class="back-text-card"> 
+                          <ul class="list">
+                              <li class='name-back'><strong>Nome:</strong>${name}</li>
+                              <li><strong>Gênero:</strong>${gender}</li>      
+                              <li><strong>Status:</strong>${status}</li>
+                              <li><strong>Espécie:</strong>${species}</li>
+                              <li><strong>Origem:</strong>${origin.name}</li>
+                              <li><strong>Localização:</strong></li>
+                                  <li> ${location.name} </li>
+                                  <li> Aparece em: </li>
+                                  <li>${episode.length} episódios</li>
+                          </ul>
+                      </div>
+                    </div>
+                  `
                 ).join("");
 
             cards.innerHTML = "";
@@ -132,11 +133,12 @@ export const Home = () => {
 
         printGenderAverage.innerHTML =
             `
-                <p class="text">&ensp;<p>Médias:</p>&ensp;
-                Masculinos: <p>${maleAverage}</p> &ensp;| &ensp;
-                Femininos: <p>${femaleAverage}</p> &ensp;| &ensp;
-                Desconhecidos: <p>${unknownAverage}</p>&ensp; | &ensp;
-                Sem gênero: <p>${genderlessAverage}</p> &ensp;
+                <p class="text">
+                    <p>Médias:</p>
+                    <p>Masculinos:${maleAverage}</p>
+                    <p>Femininos:${femaleAverage}</p>
+                    <p>Desconhecidos: ${unknownAverage}</p>
+                    <p>Sem gênero:${genderlessAverage}</p>
                 </p>
             `;
 
