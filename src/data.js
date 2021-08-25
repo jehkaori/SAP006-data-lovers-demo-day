@@ -1,6 +1,6 @@
 export const filterData = (data, type, condition) => {
-    const filterResults = data.filter(results => results[type] === condition);
-    return filterResults;
+  const filterResults = data.filter(results => results[type] === condition);
+  return filterResults;
 };
 
 //////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
@@ -9,7 +9,7 @@ export const ordemAlfabetica = (data, order) => {
     return data.sort((a, z) => a.name > z.name ? 1 : -1)
   } else {
     return data.sort((a, z) => a.name > z.name ? -1 : 1)
-  } 
+  }
 };
 
 export const computeStats = {
@@ -20,7 +20,7 @@ export const computeStats = {
 
     const totalByGender = data.reduce(function (total, character) {
       if (character.gender === genderParameter) {
-       return total + 1;
+        return total + 1;
       }
       return total;
     }, 0)
