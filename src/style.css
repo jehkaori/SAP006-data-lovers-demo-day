@@ -19,12 +19,6 @@ body {
   font-family: monospace, sans-serif;
 }
 
-header {
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
 .item {
   /* margin-top: 5%; */
   text-align: center;
@@ -262,7 +256,17 @@ span {
   color: #e3dde0;
 }
 
-.footer {
+.footer-home {
+  padding: 1%;
+  background: #084d6e;
+  color: white;
+  font-size: 20pt;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-about{
   padding: 1%;
   background: #084d6e;
   color: white;
