@@ -51,7 +51,7 @@ export const computeStats = {
 
     const totalByGender = data.reduce(function (total, character) {
       if (character.gender === genderParameter) {
-        return total + 1;
+       return total + 1;
       }
       return total;
     }, 0)
