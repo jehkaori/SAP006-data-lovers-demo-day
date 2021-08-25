@@ -49,4 +49,3 @@ export const searchName = (data, condition) => {
   const searchResults = data.filter(n => n.name.toLowerCase().includes(condition.toLowerCase()));
   return searchResults;
 }
-// oi

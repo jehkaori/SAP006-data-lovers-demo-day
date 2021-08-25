@@ -112,15 +112,6 @@ input,
   appearance: none;
 }
 
-/* .container,
-
-.statistic {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-} */
-
 .cards{
   display: flex;
   flex-flow: wrap;
@@ -129,16 +120,8 @@ input,
   margin-bottom: 4vh;
 }
 
-.cards_container {
-
-  margin: 5%;
-  /* flex: 1; */
-  height: 20%; 
-  min-width: 400px;
-  max-width: 480px;
-  max-height: 100%;
-  
-  background-color: #E3DDE0;
+.cards_container{
+    margin: 3vh;
     border-style: solid;
     border-radius: 9px;
     border-color: #9ddb17; 
@@ -147,65 +130,43 @@ input,
     transition: transform 0.8s;
     transform-style: preserve-3d;
     position: relative;
-  
-  /* display: flex;
-  flex-direction: row;
-  margin: 18px;
-  position: relative;
-  flex: 1;
-  height: 243px;
-  min-width: 400px;
-  max-width: 480px;
-  max-height: 100%;
-  border-radius: 10px;
-  background-color: #E3DDE0; */
 }
+
 
 .cards_container:hover  {
   transform: rotateY(180deg);
 }
 
-.character_img, .character_info {
+.character_img, .front-text-card {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
-.character_info {
+.front-text-card {
   transform: rotateY(180deg);
   background-color: #9ABF4B;
   box-shadow: 10px 10px 10px #11283b;
 }
 
-
-
-/* img,
-.character_img {
-  max-height: 100%;
-  max-width: 100%;
-  border-radius: 10px;
-  height: 245px;
-  width: auto;
-} */
-
 img {
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
 
-.character_info {
-  margin-left: 10px;
-  width: 200px;
+.front-text-card {
+  /* margin-left: 10px; */
+   width: 200px; 
   display: flex;
   flex-direction: column;
 }
 
-h3 {
+ h3 {
   font-size: 20px;
   font-weight: 600;
-}
+} 
 
-/* #character_name,
+ #character_name,
 #character_status,
 #character_gender,
 #episodes,
@@ -214,7 +175,7 @@ p {
   font-weight: 400;
   margin: 0;
   text-align: center;
-} */
+} 
 
 p {
   font-size: 16px;
@@ -247,6 +208,19 @@ span {
   color: #e3dde0;
 }
 
+@media (min-width: 992px){
+
+  .cards_container  {
+    width: 25%;
+    height: 60vh
+  }
+
+  .character_img img {
+    margin: 2vh auto auto 5vh;
+    width: 40vh;
+    height: 47vh;
+  }
+}
 
 @media (max-width: 901px) {
   .cards_container {
@@ -256,7 +230,7 @@ span {
     flex-direction: column;
     max-width: 280px;
     min-width: 280px;
-  }
+  } 
 
   .stats {
     flex: 100%;
@@ -283,7 +257,7 @@ span {
     padding: 10px;
   }
 
-  .character_info {
+  .front-text-card {
     margin-left: 37px;
   }
 
@@ -360,3 +334,4 @@ span {
     flex-direction: column;
   }
 }
+
