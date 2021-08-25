@@ -4,6 +4,9 @@ import { computeStats, filterData, searchName, ordemAlfabetica } from "../data.j
 export const Home = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `
+        <div class="container-search">
+            <input class="search" type="search" placeholder="Pesquisar" id="search" />
+        </div>
         <form class="menu-filter">
             <input type="search" placeholder="Pesquisar" id="search" />
             <button id="sort-btn" class="sort">Personagens Principais</button>
