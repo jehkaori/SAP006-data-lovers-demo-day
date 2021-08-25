@@ -1,22 +1,17 @@
 export const notFound = () => {
-    const rootElement = document.createElement('div');
-    const containerElement = ` <div class="container">
-    <div class="boo-wrapper">
-      <div class="boo">
-        <div class="face"></div>
+  const rootElement = document.createElement('div');
+  rootElement.setAttribute('class', 'background');
+  const containerElement = ` <div class="container">
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+      <h1>Error <span class="errorcode">404</span></h1>
+      <p class="output">A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível.</p>
+      <p class="output">Por favor, tente <a href="/home">retornar para homepage</a>.</p>
       </div>
-      <div class="shadow"></div>
-  
-      <h1>Whoops!</h1>
-      <p>
-        We couldn't find the page you
-        <br />
-        were looking for.
-      </p>
-  </div>
       </div>`;
-  
-    rootElement.innerHTML = containerElement;
-  
-    return rootElement;
-  };
+
+  rootElement.innerHTML = containerElement;
+
+  return rootElement;
+};
