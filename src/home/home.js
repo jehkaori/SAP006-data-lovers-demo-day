@@ -68,13 +68,13 @@ export const Home = () => {
             e.preventDefault();
             navigation('/About')
         });
+        
         function mainFunction(data) {
 
             const cards = document.querySelector(".cards");
             let genericCards = "";
             const btnClear = document.getElementById("btn-clearFilters");
             const searchInput = document.getElementById("search");
-
             const statusFilter = document.getElementById("status-filter");
             const genderFilter = document.getElementById("gender-filter");
             const specieFilter = document.getElementById("specie-filter");
