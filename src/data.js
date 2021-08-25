@@ -9,7 +9,7 @@ export const filterData = (data, statusParameter, genderParameter, speciesParame
   if (bothFiltersAreChosen) {
     filterResults = data.filter(results => 
     results.status === statusParameter && 
-    results.gender === genderParameter && 
+    results.gender === genderParameter || 
     results.species === speciesParameter);
     return filterResults;
   }

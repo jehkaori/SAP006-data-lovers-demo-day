@@ -157,6 +157,7 @@ export const Home = () => {
             statusFilter.options[(statusFilter.selectedIndex = 0)];
             genderFilter.options[(genderFilter.selectedIndex = 0)];
             specieFilter.options[(specieFilter.selectedIndex = 0)];
+            btnOrder.options[(btnOrder.selectedIndex = 0)];
         }
 
         function searchByName(e) {

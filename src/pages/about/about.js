@@ -5,7 +5,7 @@ export const About = () => {
   container.setAttribute('class', 'background');
   container.innerHTML = `
       <h1>Sobre</h1>
-      <button class="" id="back-btn">&#8592;</button>
+      <button class="btn-back" id="back-btn"><i class="fas fa-arrow-left"></i></button>
       <p class="about-text">Rick and Morty é uma série de animação adulta norte-americana de comédia 
         e ficção científica criada por Justin Roiland e Dan Harmon para o bloco de programação noturno 
         Adult Swim, exibido no canal Cartoon Network.
@@ -19,7 +19,7 @@ export const About = () => {
 
   container.querySelector('#back-btn').addEventListener('click', (e) => {
     e.preventDefault();
-    navigation('/home');
+    navigation('/Home');
   });
 
 
