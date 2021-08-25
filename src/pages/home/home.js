@@ -9,8 +9,8 @@ export const Home = () => {
             <button id="about" class="about-btn">SOBRE A SÉRIE</button>
         </div>
         <form class="menu-filter">
+
             <input class="search" type="search" placeholder="Pesquisar personagens" id="search" />
-            <button class="sort-characters" id="sort-btn" class="sort">PERSONAGENS PRINCIPAIS</button>
 
             <select class="status-filter" name="filter" id="status-filter">
                 <option class="status" value="" selected disabled;>STATUS</option>

@@ -81,8 +81,7 @@ header {
 .status-filter,
 .gender-filter,
 .specie-filter,
-.order-filter,
-.sort-characters {
+.order-filter {
   color: var(--white-color);
   font-size: 1.24rem;
   font-family: monospace, Arial, Helvetica, sans-serif;
@@ -260,6 +259,48 @@ span {
 
 .text {
   color: #e3dde0;
+}
+
+.background{
+  background-image: url(img/teste1.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
+.about-text{
+  color: white;
+  display: flex;
+  font-size: 20px;
+  width: 50%;
+  margin-left: 46%;
+  padding-top: 5%;
+}
+
+.title-name{
+  display: flex;
+  position: absolute;
+  padding-top: 15%;
+  padding-left: 7%;
+  color: white;
+  font-size: 49px;
+}
+
+.title-sobre{
+  display: flex;
+  color: white;
+  position: absolute;
+  margin-top: 13%;
+  margin-left: 7%;
+  font-size: 32px;
+}
+
+.btn-back{
+  background-color: #F9F075;
+  width: 5%;
+  height: 5%;
+  border-radius: 15%;
+  margin-top: 3%;
 }
 
 .footer {
