@@ -30,13 +30,18 @@ header {
 }
 
 .portal-welcome{
-  /* transition: opacity 500ms; */
-  width: 50%
+  transition: 800ms;
+  width: 50%;
+  cursor: pointer;
 }
 
 .portal-welcome:hover{
   -webkit-transform:scale(1.2);
-  transform:scale(2);
+  transform:scale(1.2);
+}
+
+.portal-welcome:active{
+  opacity: 0.3;
 }
 
 h1 {
