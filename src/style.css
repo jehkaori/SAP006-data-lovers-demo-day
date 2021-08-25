@@ -81,7 +81,7 @@ header {
 .status-filter,
 .gender-filter,
 .specie-filter,
-.order-filter{
+.order-filter {
   color: var(--white-color);
   font-size: 1.24rem;
   font-family: monospace, Arial, Helvetica, sans-serif;

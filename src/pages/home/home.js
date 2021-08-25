@@ -9,6 +9,7 @@ export const Home = () => {
             <button id="about" class="about-btn">SOBRE A SÉRIE</button>
         </div>
         <form class="menu-filter">
+
             <input class="search" type="search" placeholder="Pesquisar personagens" id="search" />
 
             <select class="status-filter" name="filter" id="status-filter">
