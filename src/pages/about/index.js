@@ -4,9 +4,10 @@ export const About = () => {
   const container = document.createElement('div');
   container.setAttribute('class', 'background');
   container.innerHTML = `
-      <button class="btn-back" id="back-btn"><i class="fas fa-arrow-left"></i></button>
-      <h1>Sobre</h1>
-      <p class="about-text">Rick and Morty é uma série de animação adulta norte-americana de comédia 
+    <button class="btn-back" id="back-btn">&#8592;</button>
+      <h2 class="title-sobre">Sobre</h2>
+      <h1 class="title-name">RICK AND MORTY</h1>
+        <p class="about-text">Rick and Morty é uma série de animação adulta norte-americana de comédia 
         e ficção científica criada por Justin Roiland e Dan Harmon para o bloco de programação noturno 
         Adult Swim, exibido no canal Cartoon Network.</p>
         <p class="about-text"> É uma das animações mais insanas e viciantes produzidas até hoje. Criado inicialmente como uma

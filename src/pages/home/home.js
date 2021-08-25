@@ -40,7 +40,7 @@ export const Home = () => {
                 <option value="Poopybutthole">&#128169; Poopybutthole</option>
                 <option value="Robot">&#129302; Robô</option>
                 <option value="Vampire">&#129499; Vampiro</option>
-                <option value="Unknown">&#128100; Indefinido</option>
+                <option value="unknown">&#128100; Indefinido</option>
             </select>
 
             <select name="filter" class="order-filter" id="order-filter">
