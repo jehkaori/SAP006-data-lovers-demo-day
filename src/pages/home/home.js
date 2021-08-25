@@ -3,7 +3,7 @@ import { navigation } from '../../routes/navigation.js';
 
 export const Home = () => {
     const rootElement = document.createElement('div');
-    rootElement.innerHTML = `  
+    rootElement.innerHTML = `
         <div class="header-logo">
             <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
             <button id="about" class="about-btn">SOBRE A SÉRIE</button>
@@ -57,6 +57,16 @@ export const Home = () => {
             </section>
         </div>
         <section class="cards"></section>
+        <footer class="footer-home"> Desenvolvido pelo Squad Ada Girls:
+          <p>
+            <a style="color:aqua" href="https://github.com/biancacristinaalves" target="_blank">Bianca Alves</a>,
+            <a style="color:aqua" href="https://github.com/carmemilya" target="_blank">Carmen Gozza</a>,
+            <a style="color:aqua" href="https://github.com/gabimendesh" target="_blank">Gabrielly Mendes</a>,
+            <a style="color:aqua" href="https://github.com/jehkaori" target="_blank">Jéssica Inamassu</a>,
+            <a style="color:aqua" href="https://github.com/mayarabezerra" target="_blank">Mayara Bezerra</a>,
+            <a style="color:aqua" href="https://github.com/ThalitaNeves95" target="_blank">Thalita Neves</a>
+          </p>
+        </footer>
     `
 
     fetch("./data/rickandmorty/rickandmorty.json")
@@ -67,7 +77,7 @@ export const Home = () => {
 
     rootElement.querySelector('#about').addEventListener('click', (e) => {
         e.preventDefault();
-        navigation('/About')
+        navigation('/about')
     });
     function mainFunction(data) {
 
@@ -95,12 +105,12 @@ export const Home = () => {
                       <div class="front-card">
                         <img class='img-character' src="${image}">
                         <h3  class='name'>${name}</h3>
-                        
+
                       </div>
-                      <div class="back-text-card"> 
+                      <div class="back-text-card">
                           <ul class="list">
                               <li class='name-back'><strong>Nome:</strong>${name}</li>
-                              <li><strong>Gênero:</strong>${gender}</li>      
+                              <li><strong>Gênero:</strong>${gender}</li>
                               <li><strong>Status:</strong>${status}</li>
                               <li><strong>Espécie:</strong>${species}</li>
                               <li><strong>Origem:</strong>${origin.name}</li>
