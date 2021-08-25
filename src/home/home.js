@@ -67,7 +67,7 @@ export const Home = () => {
                       <h3>${name}</h3>
                     </div>
                       
-                    <ul class="front-text-card">
+                    <ul class="back-text-card">
                         <li><strong>Nome:</strong>${name}</li>
                         <li><strong>Gênero:</strong>${gender}</li>      
                         <li><strong>Status:</strong>${status}</li>
@@ -77,6 +77,7 @@ export const Home = () => {
                           <p> ${location.name} </p>
                           <h4> Aparece em: </h4>
                           <p>${episode.length} episódios</p>
+                          
                     </ul>
         
                 </div>
