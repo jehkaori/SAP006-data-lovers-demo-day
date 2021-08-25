@@ -6,8 +6,8 @@ import { notFound } from '../notfound/index.js'
 
 
 export const routes = {
-  '/Portal': Portal,
-  '/': Home,
-  '/About': About,
+  '/': Portal,
+  '/home': Home,
+  '/about': About,
   '/page-not-found': notFound,
 };
