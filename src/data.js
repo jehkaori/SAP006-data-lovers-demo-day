@@ -1,35 +1,6 @@
-export const filterData = (data, statusParameter, genderParameter, speciesParameter) => {
-  const bothFiltersAreChosen = statusParameter !== "" && genderParameter !== "";
-  const genderParameterIsNotEmpty = genderParameter !== "";
-  const statusParameterIsNotEmpty = statusParameter !== "";
-  const speciesParameterIsNotEmpty = speciesParameter !== "";
-
-
-  let filterResults = "";
-
-  if (bothFiltersAreChosen) {
-    filterResults = data.filter(results => results.status === statusParameter && results.gender === genderParameter);
+export const filterData = (data, type, condition) => {
+    const filterResults = data.filter(results => results[type] === condition);
     return filterResults;
-  }
-
-  if (genderParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.gender === genderParameter);
-    return filterResults;
-  }
-
-  if (statusParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.status === statusParameter);
-    return filterResults;
-  }
-
-  if (speciesParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.species === speciesParameter);
-    return filterResults;
-  }
-
-  else {
-    return false
-  }
 };
 
 //////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
