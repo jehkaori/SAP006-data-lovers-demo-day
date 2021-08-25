@@ -155,6 +155,7 @@ export const Home = () => {
               statusFilter.options[(statusFilter.selectedIndex = 0)];
               genderFilter.options[(genderFilter.selectedIndex = 0)];
               specieFilter.options[(specieFilter.selectedIndex = 0)];
+              btnOrder.options[(btnOrder.selectedIndex = 0)];
             }
           
             function searchByName(e) {
@@ -174,8 +175,7 @@ export const Home = () => {
             btnClear.addEventListener("click", clearFilters);
             searchInput.addEventListener("keyup", searchByName);
             btnOrder.addEventListener("change", imprimirFiltroOrdem);
-          
-          }
+        }
           return rootElement
 }
             // const btnSort = document.getElementById("sort-btn");

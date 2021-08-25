@@ -1,14 +1,16 @@
-export const filterData = (data, statusParameter, genderParameter, speciesParameter) => {
+export const filterData = (data, statusParameter, genderParameter, speciesParameter ) => {
   const bothFiltersAreChosen = statusParameter !== "" && genderParameter !== "";
   const genderParameterIsNotEmpty = genderParameter !== "";
   const statusParameterIsNotEmpty = statusParameter !== "";
   const speciesParameterIsNotEmpty = speciesParameter !== "";
 
-
   let filterResults = "";
 
   if (bothFiltersAreChosen) {
-    filterResults = data.filter(results => results.status === statusParameter && results.gender === genderParameter);
+    filterResults = data.filter(results => 
+    results.status === statusParameter && 
+    results.gender === genderParameter || 
+    results.species === speciesParameter);
     return filterResults;
   }
 
