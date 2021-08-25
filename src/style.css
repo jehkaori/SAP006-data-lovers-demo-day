@@ -106,7 +106,7 @@ input {
 }
 
 input,
-#sort-btn {
+.sort {
   border-radius: 20px;
   width: 150px;
   height: 45px;
@@ -116,7 +116,7 @@ input,
 
 }
 
-#sort-btn {
+.sort {
   position: relative;
   right: 23px;
   background: #87f583;
@@ -124,7 +124,7 @@ input,
   border: none;
 }
 
-#btn-clearFilters {
+.btn-limpar {
   width: 100px;
   border-radius: 20px;
   color: var(--corfiltros);
@@ -132,8 +132,7 @@ input,
   border: 1px solid #87f583;
 }
 
-#btn-clearFilters:hover,
-#sort-btn:hover {
+.btn-limpar:hover, .sort:hover {
   background: #05f2af;
   border: 1px solid #05f2af;
   transition-duration: 0.5s;
@@ -150,33 +149,54 @@ input,
   -webkit-appearance: none;
   appearance: none;
 }
-
-.cards{
+/* inicio da atualização dos cards */
+ .cards{
   display: flex;
   flex-flow: wrap;
-  align-content: center;
+  justify-content: space-around;
+}
+
+ .cards_container{
+    margin: 2%;
+    width: 20%;
+    height: 55vh;
+    border-radius: 10px;
+    border: solid;
+    border-color: rgb(153, 196, 147);
+    box-shadow: 5px 5px 5px rgb(153, 196, 147);
+    font-weight: bold;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.front-card {
+  border-radius: 5px;
+  background-color: #9ABF48;
+  width: 100%;
+  height: 70%;
+}
+
+.img-character {
+    width: 100%;
+    height: 70%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.name {
+  display: flex;
   justify-content: center;
-  margin-bottom: 4vh;
-}
-
-.cards_container{
-  margin: 3vh;
-  border-style: solid;
-  border-radius: 9px;
-  border-color: #9ddb17;
+  color: rgb(248, 248, 248);
   font-weight: bold;
-  box-shadow: 10px 10px 10px #81b316cb;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  position: relative;
-}
 
+
+}
 
 .cards_container:hover  {
   transform: rotateY(180deg);
 }
 
-.character_img, .back-text-card {
+.front-card, .back-text-card {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -184,28 +204,32 @@ input,
 }
 
 .back-text-card {
+  display: flex;
+  background-color: #9ABF48;
   transform: rotateY(180deg);
-  /*box-shadow: 10px 10px 10px #11283b;*/
+  box-shadow: 5px 5px 5px rgb(153, 196, 147);
+  border-radius: 2% 2%;
+
 }
 
-img {
-  border-radius: 10px;
+.list li {
+  padding: 3%;
+  list-style-type: none;
 }
 
 .back-text-card {
-  /* margin-left: 10px; */
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   list-style: none;
 }
 
-h3 {
-  font-size: 20px;
-  font-weight: 600px;
+.name-back {
+  color: #11283b;
+  font-weight: bold;
 }
-
-#character_name,
+/* fim das atualizações */
+ #character_name,
 #character_status,
 #character_gender,
 #episodes,
@@ -220,9 +244,9 @@ p {
   font-size: 16px;
 }
 
-#episodes {
+/* #episodes {
   padding: 0.3vh;
-}
+} */
 
 .stats {
   margin: 18px;
@@ -235,8 +259,8 @@ span {
   font-weight: 600;
 }
 
-#totalCharacters,
-#genderAverage {
+.total-characters,
+.gender-average {
   border-radius: 20px;
   background: #221c20;
   border: 1px solid;
@@ -246,20 +270,6 @@ span {
 
 .text {
   color: #e3dde0;
-}
-
-@media (min-width: 992px){
-
-  .cards_container  {
-    width: 25%;
-    height: 60vh
-  }
-
-  .character_img img {
-    width: 40vh;
-    height: 47vh;
-    margin-top: 2vh;
-  }
 }
 
 .footer{
@@ -273,15 +283,15 @@ span {
   position: fixed;
 }
 
+/* @media (min-width: 992px){ */
+
 
 @media (max-width: 901px) {
   .cards_container {
     flex: 100%;
-    height: 490px;
     display: flex;
     flex-direction: column;
-    max-width: 280px;
-    min-width: 280px;
+    max-width: 60vh;
   }
 
   .stats {
@@ -291,16 +301,16 @@ span {
     flex-wrap: wrap;
   }
 
-  #genderAverage,
-  #totalCharacter,
+  .gender-average,
+  .total-character,
   p {
     text-align: center;
     margin: 8px 0;
     font-size: 16px;
   }
 
-  #totalCharacters,
-  #genderAverage {
+  .total-characters,
+  .gender-average {
     max-width: 378px;
     max-height: 132px;
     min-width: 256px;
@@ -309,17 +319,6 @@ span {
 
   .text {
     align-content: center;
-    padding: 10px;
-  }
-
-  .back-text-card {
-    margin-left: 10px;
-  }
-
-  img {
-    height: 65%;
-    width: 65%;
-    border-radius: 10px 10px 0 0;
   }
 
   .portal-welcome:hover{
@@ -349,9 +348,9 @@ span {
     right: 0;
   }
 
-  #search,
-  #status-filter,
-  #gender-filter,
+  .search,
+  .status-filtro,
+  .gender-filtro,
   button {
     margin-bottom: 0;
   }
@@ -360,7 +359,7 @@ span {
     left: 5px;
   }
 
-  #sort-btn {
+  .sort {
     position: relative;
     right: 5px;
   }
@@ -372,18 +371,19 @@ span {
     font-size: 50px;
   }
 
-  #genderAverage,
-  #totalCharacter {
+  .gender-average,
+  .total-character {
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
     flex-direction: column;
   }
+
   .text {
     align-content: center;
   }
 
-  #sort-btn,
+  .btn-principais,
   input {
     position: relative;
     right: 0;

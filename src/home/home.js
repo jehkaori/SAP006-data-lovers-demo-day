@@ -9,17 +9,16 @@ export const Home = () => {
             <input class="search" type="search" placeholder="Pesquisar" id="search" />
         </div>
         <form class="menu-filter">
-            <input type="search" placeholder="Pesquisar" id="search" />
-            <button id="sort-btn" class="sort">Personagens Principais</button>
+            <button class="btn-principais" id="sort-btn" class="sort">Personagens Principais</button>
 
-            <select name="filter" id="status-filter">
+            <select class="status-filtro" name="filter" id="status-filter">
                 <option class="status" value="" selected disabled;>STATUS</option>
                 <option value="Alive">&#128147; Vivo</option>
                 <option value="Dead">&#128128; Morto</option>
                 <option value="unknown">&#128100; Desconhecido</option>
             </select>
 
-            <select name="filter" id="gender-filter">
+            <select class="gender-filtro" name="filter" id="gender-filter">
                 <option class="gender" value="" selected disabled;>GÊNERO</option>
                 <option value="Male">&#128102;&#127995; Masculino</option>
                 <option value="Female">&#128103;&#127997; Feminino</option>
@@ -52,8 +51,8 @@ export const Home = () => {
         </form>
         <div class="container">
             <section class="stats">
-                <div id="totalCharacters"></div>
-                <div id="genderAverage"></div>
+                <div class="total-characters" id="totalCharacters"></div>
+                <div class="gender-average" id="genderAverage"></div>
             </section>
         </div>
         <section class="cards"></section>
@@ -92,23 +91,24 @@ export const Home = () => {
                   ({ name, status, gender, image, episode, location, species, origin }) =>
                     `
                       <div class="cards_container">
-                        <div class="character_img">
-                          <img src="${image}">
-                          <h3>${name}</h3>
+                        <div class="front-card">
+                          <img class='img-character' src="${image}">
+                          <h3  class='name'>${name}</h3>
+                          
                         </div>
-
-                        <ul class="front-text-card">
-                          <li><strong>Nome:</strong>${name}</li>
-                          <li><strong>Gênero:</strong>${gender}</li>
-                          <li><strong>Status:</strong>${status}</li>
-                          <li><strong>Espécie:</strong>${species}</li>
-                          <li><strong>Origem:</strong>${origin.name}</li>
-                          <li><strong>Localização:</strong></li>
-                            <p> ${location.name} </p>
-                            <h4> Aparece em: </h4>
-                            <p>${episode.length} episódios</p>
-                        </ul>
-
+                        <div class="back-text-card"> 
+                            <ul class="list">
+                                <li class='name-back'><strong>Nome:</strong>${name}</li>
+                                <li><strong>Gênero:</strong>${gender}</li>      
+                                <li><strong>Status:</strong>${status}</li>
+                                <li><strong>Espécie:</strong>${species}</li>
+                                <li><strong>Origem:</strong>${origin.name}</li>
+                                <li><strong>Localização:</strong></li>
+                                    <li> ${location.name} </li>
+                                    <li> Aparece em: </li>
+                                    <li>${episode.length} episódios</li>
+                            </ul>
+                        </div>
                       </div>
                     `
                 ).join("");
