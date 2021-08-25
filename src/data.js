@@ -1,37 +1,6 @@
-export const filterData = (data, statusParameter, genderParameter, speciesParameter ) => {
-  const bothFiltersAreChosen = statusParameter !== "" && genderParameter !== "";
-  const genderParameterIsNotEmpty = genderParameter !== "";
-  const statusParameterIsNotEmpty = statusParameter !== "";
-  const speciesParameterIsNotEmpty = speciesParameter !== "";
-
-  let filterResults = "";
-
-  if (bothFiltersAreChosen) {
-    filterResults = data.filter(results => 
-    results.status === statusParameter && 
-    results.gender === genderParameter || 
-    results.species === speciesParameter);
-    return filterResults;
-  }
-
-  if (genderParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.gender === genderParameter);
-    return filterResults;
-  }
-
-  if (statusParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.status === statusParameter);
-    return filterResults;
-  }
-
-  if (speciesParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.species === speciesParameter);
-    return filterResults;
-  }
-
-  else {
-    return false
-  }
+export const filterData = (data, type, condition) => {
+  const filterResults = data.filter(results => results[type] === condition);
+  return filterResults;
 };
 
 //////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
@@ -40,7 +9,7 @@ export const ordemAlfabetica = (data, order) => {
     return data.sort((a, z) => a.name > z.name ? 1 : -1)
   } else {
     return data.sort((a, z) => a.name > z.name ? -1 : 1)
-  } 
+  }
 };
 
 export const computeStats = {
@@ -51,7 +20,7 @@ export const computeStats = {
 
     const totalByGender = data.reduce(function (total, character) {
       if (character.gender === genderParameter) {
-       return total + 1;
+        return total + 1;
       }
       return total;
     }, 0)

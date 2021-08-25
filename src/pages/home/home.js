@@ -142,22 +142,29 @@ export const Home = () => {
                 </p>
             `;
 
-        function filter(e) {
-            e.preventDefault();
-            const statusOptions = statusFilter.options[statusFilter.selectedIndex].value;
-            const genderOptions = genderFilter.options[genderFilter.selectedIndex].value;
-            const specieOptions = specieFilter.options[specieFilter.selectedIndex].value;
-            const filterValue = filterData(data.results, statusOptions, genderOptions, specieOptions);
-            printCardsGeneric(filterValue);
+        let visible = data.results;
+
+        const filter = () => {
+            visible = data.results;
+            const species = specieFilter.value;
+            const gender = genderFilter.value;
+            const status = statusFilter.value;
+            if (species) {
+                visible = filterData(visible, 'species', species)
+            }
+            if (gender) {
+                visible = filterData(visible, 'gender', gender)
+            }
+            if (status) {
+                visible = filterData(visible, 'status', status)
+            }
+            printCardsGeneric(visible);
         }
 
         function clearFilters(e) {
-            e.preventDefault();
-            printCardsGeneric(data.results);
-            statusFilter.options[(statusFilter.selectedIndex = 0)];
-            genderFilter.options[(genderFilter.selectedIndex = 0)];
-            specieFilter.options[(specieFilter.selectedIndex = 0)];
-            btnOrder.options[(btnOrder.selectedIndex = 0)];
+            e.preventDefault()
+            visible = data.results
+            printCardsGeneric(visible)
         }
 
         function searchByName(e) {
@@ -167,7 +174,7 @@ export const Home = () => {
 
         //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
         function imprimirFiltroOrdem(e) {
-            const order = ordemAlfabetica(data.results, e.target.value)
+            const order = ordemAlfabetica(visible, e.target.value)
             printCardsGeneric(order);
         }
 
