@@ -32,7 +32,14 @@ export const filterData = (data, statusParameter, genderParameter, speciesParame
   }
 };
 
-export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
+//////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
+export const ordemAlfabetica = (data, order) => {
+  if (order === "AZ") {
+    return data.sort((a, z) => a.name > z.name ? 1 : -1)
+  } else {
+    return data.sort((a, z) => a.name > z.name ? -1 : 1)
+  } 
+};
 
 export const computeStats = {
 
@@ -57,3 +64,4 @@ export const searchName = (data, condition) => {
   return searchResults;
 }
 
+// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);

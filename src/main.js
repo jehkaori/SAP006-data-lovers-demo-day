@@ -1,4 +1,4 @@
-import { computeStats, filterData, sortData, searchName } from "./data.js";
+import { computeStats, filterData, searchName, ordemAlfabetica } from "./data.js";
 
 fetch("./data/rickandmorty/rickandmorty.json")
   .then(response => response.json())
@@ -11,13 +11,12 @@ function mainFunction(data) {
   const cards = document.querySelector(".cards");
   let genericCards = "";
   const btnClear = document.getElementById("btn-clearFilters");
-  const btnSort = document.getElementById("sort-btn");
   const searchInput = document.getElementById("search");
 
   const statusFilter = document.getElementById("status-filter");
   const genderFilter = document.getElementById("gender-filter");
   const specieFilter = document.getElementById("specie-filter");
-
+  const btnOrder = document.getElementById("order-filter");
 
   const printTotalCharacters = document.getElementById("totalCharacters");
   const printGenderAverage = document.getElementById("genderAverage");
@@ -59,7 +58,7 @@ function mainFunction(data) {
 
   printTotalCharacters.innerHTML =
     `<p class="text">O total de personagens da série é:
-    <span class="numberOfCharacters">${totalCharacters}</span>
+    <p class="numberOfCharacters">${totalCharacters}</p>
    </p>`;
 
   const maleAverage = computeStats.gender(data.results, "Male") + "%";
@@ -69,11 +68,11 @@ function mainFunction(data) {
 
   printGenderAverage.innerHTML =
     `
-      <p class="text">&ensp;<span>Médias:</span>&ensp;
-      Masculinos: <span>${maleAverage}</span> &ensp;| &ensp;  
-      Femininos: <span>${femaleAverage}</span> &ensp;| &ensp;
-      Desconhecidos: <span>${unknownAverage}</span>&ensp; | &ensp;
-      Sem gênero: <span>${genderlessAverage}</span> &ensp;
+      <p class="text">&ensp;<p>Médias:</p>&ensp;
+      Masculinos: <p>${maleAverage}</p> &ensp;| &ensp;  
+      Femininos: <p>${femaleAverage}</p> &ensp;| &ensp;
+      Desconhecidos: <p>${unknownAverage}</p>&ensp; | &ensp;
+      Sem gênero: <p>${genderlessAverage}</p> &ensp;
       </p>
   `;
 
@@ -84,18 +83,7 @@ function mainFunction(data) {
     const specieOptions = specieFilter.options[specieFilter.selectedIndex].value;
     const filterValue = filterData(data.results, statusOptions, genderOptions, specieOptions);
     printCardsGeneric(filterValue);
-    console.log(filterValue);
   }
-  statusFilter.addEventListener("change", filter);
-  genderFilter.addEventListener("change", filter);
-  specieFilter.addEventListener("change", filter);
-
-  function sort(e) {
-    e.preventDefault();
-    const sortCards = sortData(data.results);
-    printCardsGeneric(sortCards);
-  }
-  btnSort.addEventListener("click", sort);
 
   function clearFilters(e) {
     e.preventDefault();
@@ -104,12 +92,32 @@ function mainFunction(data) {
     genderFilter.options[(genderFilter.selectedIndex = 0)];
     specieFilter.options[(specieFilter.selectedIndex = 0)];
   }
-  btnClear.addEventListener("click", clearFilters);
 
   function searchByName(e) {
     const charactersByName = searchName(data.results, e.target.value);
     printCardsGeneric(charactersByName);
   }
+
+  //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
+  function imprimirFiltroOrdem(e) {
+    const order = ordemAlfabetica(data.results, e.target.value)
+    printCardsGeneric(order);
+  }
+
+  statusFilter.addEventListener("change", filter);
+  genderFilter.addEventListener("change", filter);
+  specieFilter.addEventListener("change", filter);
+  btnClear.addEventListener("click", clearFilters);
   searchInput.addEventListener("keyup", searchByName);
+  btnOrder.addEventListener("change", imprimirFiltroOrdem);
 
 }
+
+
+  // const btnSort = document.getElementById("sort-btn");
+/* function sort(e) {
+    e.preventDefault();
+    const sortCards = sortData(data.results);
+    printCardsGeneric(sortCards);
+  }
+  btnSort.addEventListener("click", sort); */
