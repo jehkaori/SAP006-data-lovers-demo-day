@@ -16,19 +16,7 @@ body {
   box-sizing: border-box;
   height: 100vh;
   font-family: monospace;
-<<<<<<< HEAD
-=======
   font-size: 30px;
-}
-
-:root {
-  --orange-color: #f27f3d;
-  --light-green-color: #9abf4b;
-  --aquamarine-color: #0aa689;
-  --blue-color: #0a5da6;
-  --yellow-color: #f9f075;
-  --white-color: #ffff;
->>>>>>> 0639fcb8e39bb6ac06966cfe1a416fdd31ad2b22
 }
 
 main {
@@ -56,13 +44,8 @@ h1 {
 }
 
 option {
-<<<<<<< HEAD
-  color: var(--corfiltros);
-  font-size: 18px;
-=======
   color: #221C20;
   font-size: 15px;
->>>>>>> 0639fcb8e39bb6ac06966cfe1a416fdd31ad2b22
 }
 
 input,
@@ -134,11 +117,7 @@ input,
 #btn-clearFilters {
   width: 100px;
   border-radius: 20px;
-<<<<<<< HEAD
-  color: var(--corfiltros);
-=======
   color: #221c20;
->>>>>>> 0639fcb8e39bb6ac06966cfe1a416fdd31ad2b22
   background: #87f583;
   border: 1px solid #87f583;
 }
@@ -161,61 +140,91 @@ input,
   -webkit-appearance: none;
   appearance: none;
 }
-
-.cards{
+/* inicio da atualização dos cards */
+ .cards{
   display: flex;
-  flex-flow: wrap;
-  align-content: center;
+  flex-flow: wrap; 
+  justify-content: space-around;
+} 
+
+ .cards_container{
+    margin: 2%;   
+    width: 20%;
+    height: 55vh; 
+    border-radius: 10px; 
+    border: solid; 
+    border-color: rgb(153, 196, 147); 
+    box-shadow: 5px 5px 5px rgb(153, 196, 147);  
+    font-weight: bold; 
+    transition: transform 0.8s; 
+    transform-style: preserve-3d;  
+} 
+
+.front-card {
+  border-radius: 5px; 
+  background-color: #9ABF48;
+  width: 100%;
+  height: 70%;
+} 
+
+.img-character {
+    width: 100%;
+    height: 70%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.name {
+  display: flex;
   justify-content: center;
-  margin-bottom: 4vh;
+  color: rgb(248, 248, 248);
+  font-weight: bold;
+  font-size: 50%;
+  
 }
-
-.cards_container{
-    margin: 3vh;
-    border-style: solid;
-    border-radius: 9px;
-    border-color: #9ddb17; 
-    font-weight: bold;
-    box-shadow: 10px 10px 10px #81b316cb;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
 
 .cards_container:hover  {
   transform: rotateY(180deg);
 }
 
-.character_img, .back-text-card {
-  position: absolute;
+.front-card, .back-text-card {
+  position: absolute;    
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
 .back-text-card {
-  transform: rotateY(180deg);
-  /*box-shadow: 10px 10px 10px #11283b;*/
+  display: flex;
+  background-color: #9ABF48;
+  transform: rotateY(180deg); 
+  box-shadow: 5px 5px 5px rgb(153, 196, 147); 
+  border-radius: 2% 2%;
+ 
 }
 
-img {
-  border-radius: 10px;
+.back-text-card li {
+  font-size: 30%;
 }
+
+.list li {
+  padding: 3%;
+  list-style-type: none;
+}  
 
 .back-text-card {
-  /* margin-left: 10px; */
-  width: 300px; 
+  width: 100%; 
   display: flex;
   flex-direction: column;
-  list-style: none;
-}
-
- h3 {
-  font-size: 20px;
-  font-weight: 600px;
+  list-style: none; 
 } 
 
+.name-back {
+  color: #11283b;
+  font-weight: bold;
+  font-size: 80%;
+}
+/* fim das atualizações */
  #character_name,
 #character_status,
 #character_gender,
@@ -259,20 +268,6 @@ span {
   color: #e3dde0;
 }
 
-@media (min-width: 992px){
-
-  .cards_container  {
-    width: 25%;
-    height: 60vh
-  }
-
-  .character_img img {
-    width: 40vh;
-    height: 47vh;
-    margin-top: 2vh;
-  }
-}
-
 .footer{
     height: 55px;
     padding: 5px;
@@ -283,15 +278,15 @@ span {
     width: 100%;
 }
 
+/* @media (min-width: 992px){ */
+
 
 @media (max-width: 901px) {
   .cards_container {
     flex: 100%;
-    height: 490px;
     display: flex;
     flex-direction: column;
-    max-width: 280px;
-    min-width: 280px;
+    max-width: 60vh;
   } 
 
   .stats {
@@ -300,6 +295,7 @@ span {
     justify-content: center;
     flex-wrap: wrap;
   }
+
 
   #genderAverage,
   #totalCharacter,
@@ -319,17 +315,6 @@ span {
 
   .text {
     align-content: center;
-    padding: 10px;
-  }
-
-  .back-text-card {
-    margin-left: 10px;
-  }
-
-  img {
-    height: 200px;
-    width: 250px;
-    border-radius: 10px 10px 0 0;
   }
 
   header {
@@ -384,6 +369,7 @@ span {
     font-size: 14px;
     flex-direction: column;
   }
+
   .text {
     align-content: center;
   }
