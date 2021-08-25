@@ -34,7 +34,7 @@ header {
 }
 
 .portal-welcome{
-  transition: opacity 5s;
+  transition: opacity 500ms;
 }
 
 .portal-welcome:hover{
