@@ -89,29 +89,29 @@ export const Home = () => {
               genericCards = filterChosen
                 .map(
                   ({ name, status, gender, image, episode, location, species, origin }) =>
-                    `
-                      <div class="cards_container">
-                        <div class="front-card">
-                          <img class='img-character' src="${image}">
-                          <h3  class='name'>${name}</h3>
-                          
-                        </div>
-                        <div class="back-text-card"> 
-                            <ul class="list">
-                                <li class='name-back'><strong>Nome:</strong>${name}</li>
-                                <li><strong>Gênero:</strong>${gender}</li>      
-                                <li><strong>Status:</strong>${status}</li>
-                                <li><strong>Espécie:</strong>${species}</li>
-                                <li><strong>Origem:</strong>${origin.name}</li>
-                                <li><strong>Localização:</strong></li>
-                                    <li> ${location.name} </li>
-                                    <li> Aparece em: </li>
-                                    <li>${episode.length} episódios</li>
-                            </ul>
-                        </div>
-                      </div>
-                    `
-                ).join("");
+                  `
+                  <div class="cards_container">
+                    <div class="front-card">
+                      <img class='img-character' src="${image}">
+                      <h3  class='name'>${name}</h3>
+                      
+                    </div>
+                    <div class="back-text-card"> 
+                        <ul class="list">
+                            <li class='name-back'><strong>Nome:</strong>${name}</li>
+                            <li><strong>Gênero:</strong>${gender}</li>      
+                            <li><strong>Status:</strong>${status}</li>
+                            <li><strong>Espécie:</strong>${species}</li>
+                            <li><strong>Origem:</strong>${origin.name}</li>
+                            <li><strong>Localização:</strong></li>
+                                <li> ${location.name} </li>
+                                <li> Aparece em: </li>
+                                <li>${episode.length} episódios</li>
+                        </ul>
+                    </div>
+                  </div>
+                `
+            ).join("");
 
               cards.innerHTML = "";
               cards.innerHTML += genericCards;
