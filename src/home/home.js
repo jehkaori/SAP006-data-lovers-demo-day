@@ -67,7 +67,7 @@ export const Home = () => {
 
         rootElement.querySelector('#about').addEventListener('click', (e) => {
             e.preventDefault();
-            navigation('/About')
+            navigation('/about')
         });
         function mainFunction(data) {
 
