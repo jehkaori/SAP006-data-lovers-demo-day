@@ -1,9 +1,10 @@
 import { computeStats, filterData, searchName, ordemAlfabetica } from "../data.js";
-// import { navigation } from '../routes/navigation.js';
+import { navigation } from '../routes/navigation.js';
 
 export const Home = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `
+        <button id="about">Sobre</button>
         <div class="container-search">
             <input class="search" type="search" placeholder="Pesquisar" id="search" />
         </div>
@@ -55,7 +56,7 @@ export const Home = () => {
                 <div id="genderAverage"></div>
             </section>
         </div>
-            <section class="cards"></section>
+        <section class="cards"></section>
     `
 
     fetch("./data/rickandmorty/rickandmorty.json")
@@ -64,6 +65,10 @@ export const Home = () => {
             mainFunction(data)
         })
 
+        rootElement.querySelector('#about').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigation('/About')
+        });
         function mainFunction(data) {
 
             const cards = document.querySelector(".cards");
