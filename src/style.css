@@ -18,9 +18,9 @@ body {
   font-family: monospace;
 }
 
-main {
+/* main {
   margin: 15px;
-}
+} */
 
 header {
   align-items: center;
@@ -34,7 +34,7 @@ header {
 }
 
 .portal-welcome{
-  transition: opacity 500ms;
+  transition: opacity 5s;
 }
 
 .portal-welcome:hover{
@@ -163,15 +163,15 @@ input,
 }
 
 .cards_container{
-    margin: 3vh;
-    border-style: solid;
-    border-radius: 9px;
-    border-color: #9ddb17;
-    font-weight: bold;
-    box-shadow: 10px 10px 10px #81b316cb;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    position: relative;
+  margin: 3vh;
+  border-style: solid;
+  border-radius: 9px;
+  border-color: #9ddb17;
+  font-weight: bold;
+  box-shadow: 10px 10px 10px #81b316cb;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 
@@ -203,12 +203,12 @@ img {
   list-style: none;
 }
 
- h3 {
+h3 {
   font-size: 20px;
   font-weight: 600px;
 }
 
- #character_name,
+#character_name,
 #character_status,
 #character_gender,
 #episodes,
@@ -266,13 +266,14 @@ span {
 }
 
 .footer{
-    height: 55px;
-    padding: 5px;
-    background: #084D6E;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    width: 100%;
+  padding: 1%;
+  background: #084D6E;
+  color: white;
+  font-size: 20pt;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
 }
 
 
