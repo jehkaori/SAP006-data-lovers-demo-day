@@ -12,27 +12,13 @@ export const ordemAlfabetica = (data, order) => {
   } 
 };
 
-export const computeStats = {
+export const computeStats = (data, typeData, condition) => data.reduce((initialType, totalType) => {
+  return initialType + (totalType[typeData] === condition) ;
+},0);
 
-  characters: (data) => (data).length,
+export const searchName = (data, condition, type) => {
 
-  gender: (data, genderParameter) => {
-
-    const totalByGender = data.reduce(function (total, character) {
-      if (character.gender === genderParameter) {
-       return total + 1;
-      }
-      return total;
-    }, 0)
-    const average = Number(((totalByGender / data.length) * 100).toFixed(2));
-    return average;
-  },
-
-};
-
-export const searchName = (data, condition) => {
-  const searchResults = data.filter(n => n.name.toLowerCase().includes(condition.toLowerCase()));
+  const searchResults = data.filter(search => search[type].toLowerCase().includes(condition.toLowerCase()));
   return searchResults;
 }
 
-// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
