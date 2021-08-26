@@ -9,10 +9,10 @@ export const Portal = () => {
   `
   const imgWelcome = rootElement.querySelector('.portal-welcome');
 
-  imgWelcome.addEventListener("click", () =>{
-  // imgWelcome.style.opacity = "0";
-  // imgWelcome.style.transition = "all 15s 10s"
-  navigation("/home")
+  imgWelcome.addEventListener("click", () => {
+    imgWelcome.style.opacity = "0";
+    imgWelcome.style.transition = "all 15s 10s"
+    navigation("/home")
   });
 
   return rootElement
