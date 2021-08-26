@@ -45,7 +45,7 @@ export const Home = () => {
           <option class="box-option" value="AZ">&#8635; A-Z</option>
           <option class="box-option" value="ZA">&#8634; Z-A</option>
       </select>
-      <button class="btn-clearfilter" id="btn-clearFilters" type="submit">LIMPAR</button>
+      <button class="btn-clearfilter" id="btn-clearFilters" type="submit">LIMPAR FILTROS</button>
 
     </form>
       <div class="container">
@@ -189,9 +189,15 @@ export const Home = () => {
     }
 
     const clearFilters = (e) => {
-      visible = '';
-      printCardsGeneric(visible,e)
-    }
+      e.preventDefault()
+      visible = data.results
+      selectStatus.options[(selectStatus.selectedIndex = 0)];
+      selectGender.options[(selectGender.selectedIndex = 0)];
+      selectSpecie.options[(selectSpecie.selectedIndex = 0)];
+      btnOrder.options[(btnOrder.selectedIndex = 0)]
+      printCardsGeneric(visible)
+  }
+
 
     //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
     const imprimirFiltroOrdem = () => {
@@ -210,9 +216,9 @@ export const Home = () => {
     selectStatus.addEventListener("change", () => {filter(), calculateStatus()});
     selectSpecie.addEventListener("change", () => {filter(), calculateSpecies()});
     selectGender.addEventListener("change", () => {filter(), calculateGender()});
-    btnClear.addEventListener("click", () => {clearFilters()});
-    searchInput.addEventListener("keyup", () => {searchByName()});
-    btnOrder.addEventListener("change", () => {imprimirFiltroOrdem()});
+    btnClear.addEventListener("click", clearFilters());
+    searchInput.addEventListener("keyup", searchByName());
+    btnOrder.addEventListener("change", imprimirFiltroOrdem());
 
   }
   return rootElement

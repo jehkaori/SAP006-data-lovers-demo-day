@@ -77,6 +77,19 @@ body {
   background: var(--white-color);
 }
 
+.btn-clearfilter {
+  background: var(--white-color);
+  color: var(--background-blue-color);
+  padding: 12px;
+  width: 11rem;
+  border-radius: 20px;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  grid-row: 2;
+  grid-column: 3;
+}
+
+
 .btnsMS{
   text-align: center;
   padding-bottom: 5%;
@@ -100,6 +113,18 @@ body {
   background: var(--light-green);
 }
 
+.status-filter,
+.gender-filter,
+.specie-filter,
+.order-filter {
+  color: var(--white-color);
+  font-size: 1.24rem;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-align-last: center;
+}
+
+
 .box-option {
   color: var(--dark-color);
   font-size: 18pt;
@@ -108,7 +133,7 @@ body {
 input,
 select,
 button {
-  margin: 5px;
+  margin: 3px;
   border: none;
   outline: none;
   font-size: 16px;
@@ -404,6 +429,15 @@ input,
     justify-content: center;
     margin: 0;
     right: 0;
+    display: grid;
+    grid-row:4;
+    grid-column:2;
+  }
+
+  .search{
+   grid-row: 2;
+   grid-column: 2;
+   width: 90%;
   }
 
   .search,
@@ -446,21 +480,82 @@ input,
   }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) and (max-width: 576px){
+  .Logo{
+    width: 83%;
+    padding-left: 27%;
+  }
+
+  .header-logo {
+    display: grid;
+  }
+
   .portal-btn {
     position: relative;
-    right: 12%;
-    height: 17px;
-    width: 45px;
-    font-size: 5pt;
+    right: 1%;
+    height: 20px;
+    width: 75px;
+    font-size: 6pt;
+    grid-row: 2;
   }
 
   .about-btn {
-    position: relative;
-    right: 15%;
-    height: 17px;
-    width: 45px;
-    font-size: 5pt;
+    position: inherit;
+    right: -66px;
+    height: 20px;
+    width: 75px;
+    font-size:6pt;
+    grid-row: 2;
+  }
+
+  .menu-filter {
+    margin-top: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    right: 0;
+    display: grid;
+    grid-row:4;
+    grid-column:2;
+  }
+
+  .search,
+  .status-filter,
+  .gender-filter,
+  .specie-filter,
+  .order-filter {
+    color: var(--white-color);
+    font-size: 10pt;
+    font-family: monospace, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align-last: center;
+  }
+
+  select{
+    margin: 1px;
+    padding: 1px;
+    width: 86%;
+  }
+
+  .search{
+    grid-row: 2;
+    grid-column: 2;
+    width: 90%;
+    padding: 12px;
+    height: 21%;
+    margin: 2%;
+  }
+
+  .btn-clearfilter{
+    width: 75%;
+    height: 50%;
+    font-size: 8pt;
+    font-family: monospace, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align-last: center;
+    padding: 5%;
+    align-content: center;
   }
 
   .gender-average,
@@ -471,16 +566,70 @@ input,
     flex-direction: column;
   }
 
-  .btn-principais,
-  input {
+  .stats{
+    background-color: var(--aquamarine-color);
+    height: 40px;
+    padding: 1%;
+    margin: 4%;
+    border-radius: 10px;
+  }
+
+  .total-characters,
+  .gender-average {
+  width: 100%;
+  text-align: center;
+  padding-top: 2px;
+  font-size: 8pt;
+  }
+
+  .box-option {
+    color: var(--dark-color);
+    font-size: 9pt;
+  }
+
+  .btnsMS{
+    text-align: center;
+    padding-bottom: 19%;
+  }
+
+  .more-btn{
     position: relative;
-    right: 0;
-    left: 0;
-    margin: 10px;
+    height: 2rem;
+    border-radius: 20px;
+    width: 4rem;
+    color: var(--background-blue-color);
+    font-weight: 600;
+    background: var(--white-color);
+    font-size: 10pt;
   }
 
   .menu-filter {
     flex-direction: column;
+    padding-top: 2%;
+    padding-left: 1%;
+  }
+
+  .cards_container {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 38vh;
+    margin: 5%;
+
+  }
+
+  .back-text-card{
+    font-size: 9pt;
+  }
+
+  .footer {
+    background: var(--dark-color);
+    color: var(--white-color);
+    font-size: 8pt;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
   }
 
   .portal-welcome{
