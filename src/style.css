@@ -1,19 +1,16 @@
-:root {
-  --orange-color: #f27f3d;
-  --light-green: #9abf48;
-  --aquamarine-color: #0aa689;
-  --blue-color: #0a5da6;
-  --yellow-color: #f9f075;
-  --dark-color: #221c20;
-  --background-blue-color: #002c52;
-  --white-color: #ffff;
+:root{
+  --cor1: #F27F3D;
+  --cor2: #9ABF48;
+  --cor3: #0AA689;
+  --cor4: #0A5DA6;
+  --cor5: #F9F075;
+  --corfiltros: #221C20;
 }
 
-html,
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background-blue-color);
+  background-color: var(--cor3); /*testando variaveis*/
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -97,7 +94,7 @@ body {
 }
 
 option {
-  color: var(--dark-color);
+  color: var(--corfiltros);
   font-size: 18px;
 }
 
@@ -107,12 +104,18 @@ button {
   margin: 5px;
   border: none;
   outline: none;
+  border: none;
+  text-align: center;
   font-size: 16px;
 }
 
 select,
 button {
+  width: 10%;
+  height: 25px;
   background: transparent;
+  color: #e3dde0;
+  cursor: pointer;
 }
 
 select:hover {
@@ -121,17 +124,37 @@ select:hover {
   transition: 0.3s;
 }
 
-.search {
-  width: 20%;
-  height: 40px;
+input {
+  position: relative;
+  right: 20px;
+  font-size: 18px;
+}
+
+.container-search{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.search{
+  width: 50%;
+  height: 50px;
   text-align: left;
   padding-left: 3%;
-  border-radius: 1.25rem;
-  background: var(--background-blue-color);
-  opacity: 45%;
-  padding: 20px;
-  color: var(--white-color);
-  font-size: 20px;
+}
+
+input,
+.sort {
+  border-radius: 20px;
+  width: 150px;
+  height: 45px;
+  background: #221c20;
+  border: 1px solid #87f583;
+  color: white;
+
 }
 
 .btn-clearfilter:hover,
@@ -230,6 +253,7 @@ select:hover {
   color: #11283b;
   font-weight: bold;
 }
+
 /* fim das atualizações */
 /* #character_name,
 #character_status,
@@ -246,9 +270,9 @@ span {
   font-weight: 600;
 }
 
-.total-characters,
+/* .total-characters,
 .gender-average {
-}
+} */
 
 .text {
   color: #e3dde0;
@@ -268,7 +292,7 @@ span {
 
 .footer-about{
   padding: 1%;
-  background: #084d6e;
+  background: #084D6E;
   color: white;
   font-size: 20pt;
   text-align: center;
@@ -396,9 +420,36 @@ span {
     left: 0;
     margin: 10px;
   }
-
-  .menu-filter {
-    flex-direction: column;
+  
+  @media (max-width: 320px) {
+    h1 {
+      margin: 30px 0;
+      font-size: 50px;
+    }
+  
+    .gender-average,
+    .total-character {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      flex-direction: column;
+    }
+  
+    .text {
+      align-content: center;
+    }
+  
+    .btn-principais,
+    input {
+      position: relative;
+      right: 0;
+      left: 0;
+      margin: 10px;
+    }
+  
+    .menu-filter {
+      flex-direction: column;
+    }
   }
 
   .portal-welcome{
