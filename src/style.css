@@ -276,7 +276,7 @@ input,
 }
 
 .footer {
-  background: var(--blue-color);
+  background: var(--dark-color);
   color: var(--white-color);
   font-size: 15px;
   text-align: center;
