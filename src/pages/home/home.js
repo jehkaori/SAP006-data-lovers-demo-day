@@ -56,8 +56,8 @@ export const Home = () => {
       </div>
         <section class="cards"></section>
         <div class="btnsMS">
-        <button id="button-more">MAIS</button>
-        <button id="button-all">TUDO</button>
+        <button class="more-btn" id="button-more">MAIS</button>
+        <button class="more-btn" id="button-all">TUDO</button>
       </div>
       <footer class="footer"> Desenvolvido pelo Squad Ada Girls:
         <p class="footer-link">
