@@ -161,7 +161,7 @@ export const Home = () => {
         console.log('filter gender -----', visible);
 
       }
-      if (status !== null && status !== undefined){
+      if (status){
         visible = filterData( visible, "status", status);
         console.log('filter status -----', visible);
         
@@ -218,7 +218,7 @@ export const Home = () => {
     selectSpecie.addEventListener("change", () => {filter(), calculateSpecies()});
     selectGender.addEventListener("change", () => {filter(), calculateGender()});
     btnClear.addEventListener("click", () => {clearFilters()});
-    searchInput.addEventListener("keyup", () =>  {searchByName()});
+    searchInput.addEventListener("keyup", () => {searchByName()});
     btnOrder.addEventListener("change", () => {imprimirFiltroOrdem()});
 
   }
