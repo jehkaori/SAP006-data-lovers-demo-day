@@ -51,13 +51,22 @@ body {
 
 .Logo {
   width: 30rem;
-  position: relative;
-  left: 60px;
 }
 
 .about-btn {
   position: relative;
   left: 24%;
+  height: 4rem;
+  border-radius: 20px;
+  width: 5rem;
+  color: var(--background-blue-color);
+  font-weight: 600;
+  background: var(--white-color);
+}
+
+.portal-btn {
+  position: relative;
+  right: 24%;
   height: 4rem;
   border-radius: 20px;
   width: 5rem;
@@ -146,7 +155,8 @@ input,
 
 .btn-clearfilter:hover,
 .sort-characters:hover,
-.about-btn:hover {
+.about-btn:hover,
+.portal-btn:hover {
   background: var(--orange-color);
   transition-duration: 0.5s;
   cursor: pointer;
@@ -154,7 +164,9 @@ input,
 }
 
 .status,
-.gender {
+.gender,
+.species,
+.order {
   display: none;
 }
 
