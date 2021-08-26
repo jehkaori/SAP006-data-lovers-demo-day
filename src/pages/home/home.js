@@ -1,10 +1,11 @@
-import { computeStats, filterData, searchName, ordemAlfabetica } from "../../data.js";
+import { computeStats, filterData, searchName, sortAlphabeticalOrder } from "../../data.js";
 import { navigation } from '../../routes/navigation.js';
 
 export const Home = () => {
     const rootElement = document.createElement('div');
     rootElement.innerHTML = `  
         <div class="header-logo">
+            <button id="portal" class="portal-btn">PORTAL</button>
             <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
             <button id="about" class="about-btn">SOBRE A SÉRIE</button>
         </div>
@@ -40,11 +41,11 @@ export const Home = () => {
                 <option value="Poopybutthole">&#128169; Poopybutthole</option>
                 <option value="Robot">&#129302; Robô</option>
                 <option value="Vampire">&#129499; Vampiro</option>
-                <option value="unknown">&#128100; Indefinido</option>
+                <option value="unknown">&#128100; Desconhecido</option>
             </select>
 
             <select name="filter" class="order-filter" id="order-filter">
-                <option value="" selected disabled;>ORDEM</option>
+                <option class="order" value="" selected disabled;>ORDEM</option>
                 <option value="AZ">&#8635; A-Z</option>
                 <option value="ZA">&#8634; Z-A</option>
             </select>
@@ -69,6 +70,12 @@ export const Home = () => {
         e.preventDefault();
         navigation('/about')
     });
+
+    rootElement.querySelector('#portal').addEventListener('click', (e) => {
+        e.preventDefault();
+        navigation('/')
+    });
+
     function mainFunction(data) {
 
         const cards = document.querySelector(".cards");
@@ -134,7 +141,7 @@ export const Home = () => {
         printGenderAverage.innerHTML =
             `
                 <p class="text">
-                    <p>Médias:</p>
+                    <p>Estatísticas:</p>
                     <p>Masculinos:${maleAverage}</p>
                     <p>Femininos:${femaleAverage}</p>
                     <p>Desconhecidos: ${unknownAverage}</p>
@@ -177,8 +184,8 @@ export const Home = () => {
         }
 
         //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
-        function imprimirFiltroOrdem(e) {
-            const order = ordemAlfabetica(visible, e.target.value)
+        function printAlphabeticalOrder(e) {
+            const order = sortAlphabeticalOrder(visible, e.target.value)
             printCardsGeneric(order);
         }
 
@@ -187,7 +194,7 @@ export const Home = () => {
         specieFilter.addEventListener("change", filter);
         btnClear.addEventListener("click", clearFilters);
         searchInput.addEventListener("keyup", searchByName);
-        btnOrder.addEventListener("change", imprimirFiltroOrdem);
+        btnOrder.addEventListener("change", printAlphabeticalOrder);
 
     }
     return rootElement

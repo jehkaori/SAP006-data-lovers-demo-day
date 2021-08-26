@@ -3,12 +3,11 @@ export const filterData = (data, type, condition) => {
   return filterResults;
 };
 
-//////////////////ORDENAÇÃO ALFABÉTICA UTILIZANDO SORT
-export const ordemAlfabetica = (data, order) => {
+export const sortAlphabeticalOrder = (data, order) => {
   if (order === "AZ") {
-    return data.sort((a, z) => a.name > z.name ? 1 : -1)
+    return data.sort((a, z) => a.name > z.name ? 1 : -1);
   } else {
-    return data.sort((a, z) => a.name > z.name ? -1 : 1)
+    return data.sort((a, z) => a.name > z.name ? -1 : 1);
   }
 };
 
@@ -35,4 +34,3 @@ export const searchName = (data, condition) => {
   return searchResults;
 }
 
-// export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
