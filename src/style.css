@@ -242,6 +242,39 @@ input,
   transition-duration: 0.5s;
 }
 
+.watch{
+  font-size: 23px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  margin: 2% 0 0 60%;
+}
+
+.netflix{
+  display: flex;
+  width: 3%;
+  float: right;
+  margin-right: 20%;
+  cursor: pointer;
+  border: none;
+}
+
+.netflix:hover{
+  border:solid 1px red;
+}
+
+.hbomax{
+  display: flex;
+  width: 3%;
+  float: right;
+  margin-right: -7%;
+  cursor: pointer;
+  border: none;
+}
+
+.hbomax:hover{
+  border:solid 1px rgba(89, 163, 248, 0.623);
+}
+
 .footer {
   background: var(--blue-color);
   color: var(--white-color);
