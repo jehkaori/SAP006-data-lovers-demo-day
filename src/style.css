@@ -231,19 +231,15 @@ select:hover {
   font-weight: bold;
 }
 /* fim das atualizações */
-#character_name,
+/* #character_name,
 #character_status,
 #character_gender,
-#episodes,
+#episodes, */
 p {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
   text-align: center;
-}
-
-p {
-  font-size: 16px;
 }
 
 span {
@@ -256,6 +252,7 @@ span {
 
 .text {
   color: #e3dde0;
+  font-size: 16px;
 }
 
 .footer-home {
@@ -298,8 +295,7 @@ span {
   }
 
   .gender-average,
-  .total-character,
-  p {
+  .total-character {
     text-align: center;
     margin: 8px 0;
     font-size: 16px;
@@ -368,6 +364,11 @@ span {
   .portal-welcome:active {
     opacity: 0.3;
   }
+
+  .img-container{
+    text-align: center;
+    padding-top: 68%;
+  }
 }
 
 @media (max-width: 320px) {
@@ -412,6 +413,19 @@ span {
 
   .portal-welcome:active {
     opacity: 0.3;
+  }
+
+  .img-container{
+    text-align: center;
+    padding-top: 68%;
+  }
+
+  .terminal{
+    width: 70%;
+  }
+
+  .output{
+    font-size: 20pt;
   }
 }
 
