@@ -86,16 +86,16 @@ export const Home = () => {
     const selectGender = document.getElementById("gender-filter");
     const selectSpecie = document.getElementById("specie-filter");
     const btnOrder = document.getElementById("order-filter");
-    // const showCardsMore = document.getElementById("button-more");
-    // const showCardsAll = document.getElementById("button-all");
+    const showCardsMore = document.getElementById("button-more");
+    const showCardsAll = document.getElementById("button-all");
 
     const printTotalCharacters = document.getElementById("totalCharacters");
     const printGenderAverage = document.getElementById("genderAverage");
-    // let finalArray = 20;
+    let finalArray = 8;
+    let visible = data.results;
+    let showCards = visible.slice(0, finalArray);
     
-    // const showcards = printCardsGeneric(visible.slice(0, finalArray))
-    
-     printCardsGeneric(data.results);
+    printCardsGeneric(showCards);
 
     function printCardsGeneric(filterChosen) {
       genericCards = filterChosen
@@ -128,28 +128,25 @@ export const Home = () => {
       cards.innerHTML = "";
       cards.innerHTML += genericCards;
     }
-    let visible = data.results
+    
+    
     const filter = () => {
-      visible = data.results;
+      //  visible = data.results
+       showCards = visible.slice(0, finalArray);
       const species = selectSpecie.value;
       const gender = selectGender.value;
       const status = selectStatus.value;
       if (species){
-        visible
-          = filterData(visible
-          , "species", species)
-        
+        showCards = filterData(showCards, "species", species) 
       }
-      if (gender){
-        visible
-          = filterData(visible
-          , "gender", gender)
+      if (gender){ 
+        showCards = filterData(showCards, "gender", gender)
       }
       if (status){
-        visible = filterData(visible, "status", status)
+        showCards = filterData(showCards, "status", status)
         
       }
-      printCardsGeneric(visible);  
+      printCardsGeneric(showCards);  
     }
 
     printTotalCharacters.innerHTML = `O número de personagens da série é ${(data.results).length}`
@@ -178,7 +175,7 @@ export const Home = () => {
     } 
 
     function clearFilters(e) {
-      visible = data.results
+      visible = '';
       printCardsGeneric(visible)
     }
 
@@ -187,16 +184,16 @@ export const Home = () => {
       const order = ordemAlfabetica(visible, e.target.value)
       printCardsGeneric(order);
     }
-
-    // showCardsMore.addEventListener("click", (e) => {
-    //   e.preventDefault()
-    //   finalArray += 20
-    //   printCardsGeneric(showcards)
-    // });
-    // showCardsAll.addEventListener("click", (e) => {
-    //   e.preventDefault()
-    //   printCardsGeneric(showcards)
-    // });
+    
+    showCardsMore.addEventListener("click", () => {
+      console.log('oi')
+      finalArray += 8
+      printCardsGeneric(visible.slice(0, finalArray))
+    });
+    showCardsAll.addEventListener("click", () => {
+      printCardsGeneric(visible);
+    });
+   
 
     selectStatus.addEventListener("change", () => {filter(), calculateStatus()});
     selectSpecie.addEventListener("change", () => {filter(), calculateSpecies()});
