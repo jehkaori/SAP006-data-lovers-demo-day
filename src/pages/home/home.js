@@ -154,9 +154,9 @@ export const Home = () => {
       if (species){
         visible = filterData(visible, "species", species);
         console.log('filter species -----', visible);
-        
+
       }
-      if (gender){ 
+      if (gender){
         visible = filterData(visible, "gender", gender);
         console.log('filter gender -----', visible);
 
