@@ -55,7 +55,6 @@ body {
   width: 30rem;
 }
 
-
 .about-btn {
   position: relative;
   left: 24%;
@@ -100,7 +99,6 @@ body {
   justify-content: space-evenly;
   background: var(--light-green);
 }
-
 
 .box-option {
   color: var(--dark-color);
@@ -170,6 +168,13 @@ input,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.stats{
+  background-color: var(--aquamarine-color);
+  height: 9px;
+  padding: 2%;
+  margin: 4%;
 }
 
 /* inicio da atualização dos cards */
@@ -254,6 +259,21 @@ input,
 
 /* fim das atualizações */
 
+.footer {
+  background: var(--dark-color);
+  color: var(--white-color);
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+}
+
+.footer-link{
+  margin: 4px;
+}
+
+/* About */
 
 .background {
   background-image: url(img/background.jpg);
@@ -334,68 +354,6 @@ input,
 
 .hbomax:hover{
   border:solid 1px rgba(89, 163, 248, 0.623);
-}
-
-.footer {
-  background: var(--dark-color);
-  color: var(--white-color);
-  font-size: 15px;
-  text-align: center;
-  width: 100%;
-  bottom: 0;
-  position: fixed;
-}
-
-.footer-link{
-  margin: 4px;
-}
-
-.background {
-  background-image: url(img/background.jpg);
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-}
-
-.about-text {
-  color: white;
-  display: flex;
-  font-size: 17px;
-  width: 50%;
-  margin-left: 46%;
-  margin-top: 5%;
-}
-
-.title-name {
-  display: flex;
-  position: absolute;
-  padding-top: 8%;
-  padding-left: 7%;
-  color: white;
-  font-size: 49px;
-}
-
-.title-sobre {
-  display: flex;
-  color: white;
-  position: absolute;
-  margin-top: 7%;
-  margin-left: 7%;
-  font-size: 32px;
-}
-
-.btn-back {
-  background-color: #f9f075;
-  width: 4%;
-  font-size: 2rem;
-  border-radius: 15%;
-  margin: 3% 0 0 3%;
-  cursor: pointer;
-}
-
-.btn-back:hover {
-  background: var(--orange-color);
-  transition-duration: 0.5s;
 }
 
 /* @media (min-width: 992px){ */
