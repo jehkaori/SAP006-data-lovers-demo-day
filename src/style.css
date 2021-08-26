@@ -28,6 +28,7 @@ body {
 .portal-welcome {
   transition: 800ms;
   width: 50%;
+  margin-top: 3%;
   cursor: pointer;
 }
 
@@ -395,9 +396,9 @@ span {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  /* background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   z-index: -1;
   opacity: .02;
 }
@@ -447,9 +448,8 @@ span {
 .terminal {
   box-sizing: inherit;
   position: absolute;
-  height: 100%;
-  width: 1000px;
-  max-width: 100%;
+  /* width: 1000px; */
+  /* max-width: 100%; */
   padding: 4rem;
   text-transform: uppercase;
 }
@@ -480,4 +480,13 @@ a::after {
 
 .errorcode {
   color: white;
+}
+
+.img-container{
+  text-align: center;
+}
+
+.img-not{
+  width: 30%;
+  padding-top: 15%;
 }

@@ -9,7 +9,11 @@ export const notFound = () => {
       <p class="output">A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível.</p>
       <p class="output">Por favor, tente <a href="/home">retornar para homepage</a>.</p>
       </div>
-      </div>`;
+      <div class="img-container">
+        <img class="img-not" src="img/rick-and-morty.png" alt="">
+      </div>
+      </div>
+      `;
 
   rootElement.innerHTML = containerElement;
 
