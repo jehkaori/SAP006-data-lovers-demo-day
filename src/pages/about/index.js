@@ -16,8 +16,11 @@ export const About = () => {
         <p class="about-text"> Rick é um cientista brilhante e está sempre em busca de grandes experiências, indo parar até
         em universos paralelos. Ele é bem esquentado e sempre sobra para seu neto, Morty, que o acompanha
         nessas expedições.</p>
+          <p class="watch">Onde Asistir?</p>
+          <a href="https://www.netflix.com/br/title/80014749#:~:text=Rick%20and%20Morty%20%7C%20Netflix" target="_blank"><img class="netflix" src="img/netflix.png" title="Assistir em Netflix" alt="Netflix"></a>
+          <a href="https://www.hbomax.com/br/pt/rick-and-morty?utm_id=sa%7c71700000085970731%7c58700007304447408%7cp65554600674&gclid=CjwKCAjw95yJBhAgEiwAmRrutOZQ2vdQd92wTFIhKxf_D9ygOXAFxIPKD1JRPd_mmXF_ntKE7p4juhoCykAQAvD_BwE&gclsrc=aw.ds&countryRedirect=1" target="_blank"><img class="hbomax" src="img/hbomax.png" title="Assistir em HBOMax" alt="HBOMax"></a>
         <footer class="footer"> Desenvolvido pelo Squad Ada Girls:
-          <p>
+          <p class="footer-link">
             <a style="color:aqua" href="https://github.com/biancacristinaalves" target="_blank">Bianca Alves</a>,
             <a style="color:aqua" href="https://github.com/carmemilya" target="_blank">Carmen Gozza</a>,
             <a style="color:aqua" href="https://github.com/gabimendesh" target="_blank">Gabrielly Mendes</a>,
