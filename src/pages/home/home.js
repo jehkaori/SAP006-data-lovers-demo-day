@@ -74,8 +74,8 @@ export const Home = () => {
     navigation('/About')
   });
 
-  
-  
+
+
   function mainFunction(data) {
 
     const cards = document.querySelector(".cards");
@@ -94,7 +94,7 @@ export const Home = () => {
     let finalArray = 8;
     let visible = data.results;
     let showCards = visible.slice(0, finalArray);
-    
+
     printCardsGeneric(showCards);
 
     function printCardsGeneric(filterChosen) {
@@ -106,12 +106,12 @@ export const Home = () => {
             <div class="front-card">
               <img class='img-character' src="${image}">
               <h3  class='name'>${name}</h3>
-              
+
             </div>
-            <div class="back-text-card"> 
+            <div class="back-text-card">
                 <ul class="list">
                     <li class='name-back'><strong>Nome:</strong>${name}</li>
-                    <li><strong>Gênero:</strong>${gender}</li>      
+                    <li><strong>Gênero:</strong>${gender}</li>
                     <li><strong>Status:</strong>${status}</li>
                     <li><strong>Espécie:</strong>${species}</li>
                     <li><strong>Origem:</strong>${origin.name}</li>
@@ -128,8 +128,8 @@ export const Home = () => {
       cards.innerHTML = "";
       cards.innerHTML += genericCards;
     }
-    
-    
+
+
     const filter = () => {
       //  visible = data.results
        showCards = visible.slice(0, finalArray);
@@ -137,20 +137,20 @@ export const Home = () => {
       const gender = selectGender.value;
       const status = selectStatus.value;
       if (species){
-        showCards = filterData(showCards, "species", species) 
+        showCards = filterData(showCards, "species", species)
       }
-      if (gender){ 
+      if (gender){
         showCards = filterData(showCards, "gender", gender)
       }
       if (status){
         showCards = filterData(showCards, "status", status)
-        
+
       }
-      printCardsGeneric(showCards);  
+      printCardsGeneric(showCards);
     }
 
     printTotalCharacters.innerHTML = `O número de personagens da série é ${(data.results).length}`
-         
+
     function calculateStatus() {
 
       const newstatus = computeStats(visible, "status", selectStatus.value);
@@ -172,11 +172,11 @@ export const Home = () => {
     function searchByName(e) {
       const charactersByName = searchName(data.results, e.target.value);
       printCardsGeneric(charactersByName);
-    } 
+    }
 
     function clearFilters(e) {
       visible = '';
-      printCardsGeneric(visible)
+      printCardsGeneric(visible,e)
     }
 
     //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
@@ -184,7 +184,7 @@ export const Home = () => {
       const order = ordemAlfabetica(visible, e.target.value)
       printCardsGeneric(order);
     }
-    
+
     showCardsMore.addEventListener("click", () => {
       console.log('oi')
       finalArray += 8
@@ -193,11 +193,11 @@ export const Home = () => {
     showCardsAll.addEventListener("click", () => {
       printCardsGeneric(visible);
     });
-   
+
 
     selectStatus.addEventListener("change", () => {filter(), calculateStatus()});
     selectSpecie.addEventListener("change", () => {filter(), calculateSpecies()});
-    selectGender.addEventListener("change", () => {filter(), calculateGender()}); 
+    selectGender.addEventListener("change", () => {filter(), calculateGender()});
     btnClear.addEventListener("click", clearFilters);
     searchInput.addEventListener("keyup", searchByName);
     btnOrder.addEventListener("change", imprimirFiltroOrdem);
