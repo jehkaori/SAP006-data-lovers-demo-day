@@ -52,15 +52,15 @@ body {
 }
 
 .Logo {
-  width: 30rem;
+  width: 41%;
 }
 
 .about-btn {
   position: relative;
-  left: 24%;
+  left: 18%;
   height: 4rem;
-  border-radius: 20px;
   width: 5rem;
+  border-radius: 20px;
   color: var(--background-blue-color);
   font-weight: 600;
   background: var(--white-color);
@@ -68,10 +68,10 @@ body {
 
 .portal-btn {
   position: relative;
-  right: 24%;
+  right: 18%;
   height: 4rem;
-  border-radius: 20px;
   width: 5rem;
+  border-radius: 20px;
   color: var(--background-blue-color);
   font-weight: 600;
   background: var(--white-color);
@@ -172,9 +172,18 @@ input,
 
 .stats{
   background-color: var(--aquamarine-color);
-  height: 9px;
-  padding: 2%;
+  height: 80px;
+  padding: 1%;
   margin: 4%;
+  border-radius: 10px;
+}
+
+.total-characters,
+.gender-average {
+ width: 100%;
+ text-align: center;
+ padding-top: 12px;
+ font-size: 16pt;
 }
 
 /* inicio da atualização dos cards */
@@ -359,6 +368,16 @@ input,
 /* @media (min-width: 992px){ */
 
 @media (max-width: 901px) {
+  .portal-btn {
+    position: relative;
+    right:12%;
+  }
+
+  .about-btn {
+    position: relative;
+    left: 12%;
+  }
+
   .cards_container {
     flex: 100%;
     display: flex;
@@ -375,10 +394,7 @@ input,
 
   .total-characters,
   .gender-average {
-    max-width: 378px;
-    max-height: 132px;
     min-width: 256px;
-    align-content: center;
   }
 
   .menu-filter {
@@ -392,8 +408,7 @@ input,
 
   .search,
   .status-filtro,
-  .gender-filtro,
-  button {
+  .gender-filtro{
     margin-bottom: 0;
   }
 
@@ -404,6 +419,11 @@ input,
   .sort {
     position: relative;
     right: 5px;
+  }
+
+  .btnsMS{
+    text-align: center;
+    padding-bottom: 10%;
   }
 
   .portal-welcome{
@@ -427,6 +447,21 @@ input,
 }
 
 @media (max-width: 320px) {
+  .portal-btn {
+    position: relative;
+    right: 12%;
+    height: 17px;
+    width: 45px;
+    font-size: 5pt;
+  }
+
+  .about-btn {
+    position: relative;
+    right: 15%;
+    height: 17px;
+    width: 45px;
+    font-size: 5pt;
+  }
 
   .gender-average,
   .total-character {
