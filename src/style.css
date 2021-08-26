@@ -1,16 +1,19 @@
-:root{
-  --cor1: #F27F3D;
-  --cor2: #9ABF48;
-  --cor3: #0AA689;
-  --cor4: #0A5DA6;
-  --cor5: #F9F075;
-  --corfiltros: #221C20;
+:root {
+  --orange-color: #f27f3d;
+  --light-green: #9abf48;
+  --aquamarine-color: #0aa689;
+  --blue-color: #0a5da6;
+  --yellow-color: #f9f075;
+  --dark-color: #221c20;
+  --background-blue-color: #002c52;
+  --white-color: #ffff;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--cor3); /*testando variaveis*/
+  background-color: var(--background-blue-color);
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -74,8 +77,7 @@ body {
 .status-filter,
 .gender-filter,
 .specie-filter,
-.order-filter,
-.sort-characters {
+.order-filter {
   color: var(--white-color);
   font-size: 1.24rem;
   font-family: monospace, Arial, Helvetica, sans-serif;
@@ -94,7 +96,7 @@ body {
 }
 
 option {
-  color: var(--corfiltros);
+  color: var(--dark-color);
   font-size: 18px;
 }
 
@@ -104,18 +106,12 @@ button {
   margin: 5px;
   border: none;
   outline: none;
-  border: none;
-  text-align: center;
   font-size: 16px;
 }
 
 select,
 button {
-  width: 10%;
-  height: 25px;
   background: transparent;
-  color: #e3dde0;
-  cursor: pointer;
 }
 
 select:hover {
@@ -124,26 +120,17 @@ select:hover {
   transition: 0.3s;
 }
 
-input {
-  position: relative;
-  right: 20px;
-  font-size: 18px;
-}
-
-.container-search{
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2%;
-}
-
-.search{
-  width: 50%;
-  height: 50px;
+.search {
+  width: 20%;
+  height: 40px;
   text-align: left;
   padding-left: 3%;
+  border-radius: 1.25rem;
+  background: var(--background-blue-color);
+  opacity: 45%;
+  padding: 20px;
+  color: var(--white-color);
+  font-size: 20px;
 }
 
 input,
@@ -253,7 +240,6 @@ input,
   color: #11283b;
   font-weight: bold;
 }
-
 /* fim das atualizações */
 /* #character_name,
 #character_status,
@@ -294,7 +280,31 @@ span {
   padding: 1%;
   background: #084D6E;
   color: white;
-  font-size: 20pt;
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 7%;
+  font-size: 32px;
+}
+
+.btn-back {
+  background-color: #f9f075;
+  width: 5%;
+  height: 5%;
+  border-radius: 15%;
+  margin: 3% 0 0 3%;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: var(--orange-color);
+  transition-duration: 0.5s;
+}
+
+.footer {
+  padding: 2px;
+  background: var(--blue-color);
+  color: var(--white-color);
+  font-size: 15px;
   text-align: center;
   width: 100%;
   bottom: 0;
@@ -420,36 +430,9 @@ span {
     left: 0;
     margin: 10px;
   }
-  
-  @media (max-width: 320px) {
-    h1 {
-      margin: 30px 0;
-      font-size: 50px;
-    }
-  
-    .gender-average,
-    .total-character {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
-      flex-direction: column;
-    }
-  
-    .text {
-      align-content: center;
-    }
-  
-    .btn-principais,
-    input {
-      position: relative;
-      right: 0;
-      left: 0;
-      margin: 10px;
-    }
-  
-    .menu-filter {
-      flex-direction: column;
-    }
+
+  .menu-filter {
+    flex-direction: column;
   }
 
   .portal-welcome{

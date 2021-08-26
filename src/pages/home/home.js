@@ -131,25 +131,36 @@ export const Home = () => {
 
 
     const filter = () => {
-      //  visible = data.results
-       showCards = visible.slice(0, finalArray);
+      let allCharacters = data.results;
+      visible = allCharacters;
+      showCards = visible.slice(0, finalArray);
       const species = selectSpecie.value;
       const gender = selectGender.value;
       const status = selectStatus.value;
+
+
+
       if (species){
-        showCards = filterData(showCards, "species", species)
+        visible = filterData(visible, "species", species);
+        console.log('filter species -----', visible);
+
       }
       if (gender){
-        showCards = filterData(showCards, "gender", gender)
-      }
-      if (status){
-        showCards = filterData(showCards, "status", status)
+        visible = filterData(visible, "gender", gender);
+        console.log('filter gender -----', visible);
 
       }
-      printCardsGeneric(showCards);
+      if (status !== null && status !== undefined){
+        visible = filterData( visible, "status", status);
+        console.log('filter status -----', visible);
+
+
+      }
+      printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8));
+
     }
 
-    printTotalCharacters.innerHTML = `O número de personagens da série é ${(data.results).length}`
+    printTotalCharacters.innerHTML = `O número total de personagens da série é ${(data.results).length}`
 
     function calculateStatus() {
 
@@ -186,7 +197,6 @@ export const Home = () => {
     }
 
     showCardsMore.addEventListener("click", () => {
-      console.log('oi')
       finalArray += 8
       printCardsGeneric(visible.slice(0, finalArray))
     });
