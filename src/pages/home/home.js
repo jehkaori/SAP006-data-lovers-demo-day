@@ -46,7 +46,7 @@ export const Home = () => {
           <option class="box-option" value="ZA">&#8634; Z-A</option>
       </select>
       <button class="btn-clearfilter" id="btn-clearFilters" type="submit">LIMPAR</button>
-      
+
     </form>
       <div class="container">
         <section class="stats">
@@ -141,8 +141,8 @@ export const Home = () => {
       cards.innerHTML += genericCards;
     }
 
-      
-    const filter = () => { 
+
+    const filter = () => {
       let allCharacters = data.results;
       visible = allCharacters;
       showCards = visible.slice(0, finalArray);
@@ -152,25 +152,19 @@ export const Home = () => {
 
       if (species){
         visible = filterData(visible, "species", species);
-        console.log('filter species -----', visible);
-
       }
       if (gender){
         visible = filterData(visible, "gender", gender);
-        console.log('filter gender -----', visible);
-
       }
       if (status){
         visible = filterData( visible, "status", status);
-        console.log('filter status -----', visible);
-        
       }
-      printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8)); 
+      printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8));
 
     }
-         
+
     printTotalCharacters.innerHTML = `O número total de personagens da série é ${(data.results).length}`
-         
+
     const calculateStatus = () => {
 
       const newstatus = computeStats(visible, "status", selectStatus.value);
@@ -200,7 +194,7 @@ export const Home = () => {
     }
 
     //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
-    const imprimirFiltroOrdem = (e) => {
+    const imprimirFiltroOrdem = () => {
       const order = sortAlphabeticalOrder(visible, btnOrder.value)
       printCardsGeneric(order);
     }
@@ -224,5 +218,3 @@ export const Home = () => {
   return rootElement
 
 };
-
-
