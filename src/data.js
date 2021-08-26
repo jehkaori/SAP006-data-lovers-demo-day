@@ -12,8 +12,8 @@ export const sortAlphabeticalOrder = (data, order) => {
 };
 
 export const computeStats = (data, typeData, condition) => data.reduce((initialType, totalType) => {
-  return initialType + (totalType[typeData] === condition) ;
-},0);
+  return initialType + (totalType[typeData] === condition);
+}, 0);
 
 export const searchName = (data, condition, type) => {
 

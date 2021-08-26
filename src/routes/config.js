@@ -7,5 +7,5 @@ export const routes = {
   '/': Portal,
   '/home': Home,
   '/about': About,
-  '/not-found': notFound,
+  notfound: () => notFound()
 };

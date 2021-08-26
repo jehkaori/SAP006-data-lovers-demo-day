@@ -2,9 +2,9 @@ import { computeStats, filterData, searchName, sortAlphabeticalOrder } from "../
 import { navigation } from '../../routes/navigation.js';
 
 export const Home = () => {
-  const rootElement = document.createElement('div');
-  rootElement.innerHTML =
-   `
+    const rootElement = document.createElement('div');
+    rootElement.innerHTML =
+        `
     <div class="header-logo">
       <button id="portal" class="portal-btn">PORTAL</button>
       <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
@@ -71,45 +71,48 @@ export const Home = () => {
       </div>
   `
 
-  fetch("./data/rickandmorty/rickandmorty.json")
-    .then(response => response.json())
-    .then(data => {
-      mainFunction(data)
-  })
+    fetch("./data/rickandmorty/rickandmorty.json")
+        .then(response => response.json())
+        .then(data => {
+            mainFunction(data)
+        })
 
-  rootElement.querySelector('#about').addEventListener('click', (e) => {
-    e.preventDefault();
-    navigation('/About')
-  });
+    rootElement.querySelector('#about').addEventListener('click', (e) => {
+        e.preventDefault();
+        navigation('/about')
+    });
 
+    rootElement.querySelector('#portal').addEventListener('click', (e) => {
+        e.preventDefault();
+        navigation('/')
+    });
 
+    function mainFunction(data) {
 
-  function mainFunction(data) {
+        const cards = document.querySelector(".cards");
+        let genericCards = "";
+        const btnClear = document.getElementById("btn-clearFilters");
+        const searchInput = document.getElementById("search");
+        const selectStatus = document.getElementById("status-filter");
+        const selectGender = document.getElementById("gender-filter");
+        const selectSpecie = document.getElementById("specie-filter");
+        const btnOrder = document.getElementById("order-filter");
+        const showCardsMore = document.getElementById("button-more");
+        const showCardsAll = document.getElementById("button-all");
 
-    const cards = document.querySelector(".cards");
-    let genericCards = "";
-    const btnClear = document.getElementById("btn-clearFilters");
-    const searchInput = document.getElementById("search");
-    const selectStatus = document.getElementById("status-filter");
-    const selectGender = document.getElementById("gender-filter");
-    const selectSpecie = document.getElementById("specie-filter");
-    const btnOrder = document.getElementById("order-filter");
-    const showCardsMore = document.getElementById("button-more");
-    const showCardsAll = document.getElementById("button-all");
+        const printTotalCharacters = document.getElementById("totalCharacters");
+        const printGenderAverage = document.getElementById("genderAverage");
+        let finalArray = 8;
+        let visible = data.results;
+        let showCards = visible.slice(0, finalArray);
 
-    const printTotalCharacters = document.getElementById("totalCharacters");
-    const printGenderAverage = document.getElementById("genderAverage");
-    let finalArray = 8;
-    let visible = data.results;
-    let showCards = visible.slice(0, finalArray);
+        printCardsGeneric(showCards);
 
-    printCardsGeneric(showCards);
-
-    function printCardsGeneric(filterChosen) {
-      genericCards = filterChosen
-        .map(
-          ({ name, status, gender, image, episode, location, species, origin }) =>
-          `
+        function printCardsGeneric(filterChosen) {
+            genericCards = filterChosen
+                .map(
+                    ({ name, status, gender, image, episode, location, species, origin }) =>
+                        `
           <div class="cards_container">
             <div class="front-card">
               <img class='img-character' src="${image}">
@@ -131,92 +134,91 @@ export const Home = () => {
             </div>
           </div>
         `
-      ).join("");
+                ).join("");
 
-      cards.innerHTML = "";
-      cards.innerHTML += genericCards;
+            cards.innerHTML = "";
+            cards.innerHTML += genericCards;
+        }
+
+
+        const filter = () => {
+            let allCharacters = data.results;
+            visible = allCharacters;
+            showCards = visible.slice(0, finalArray);
+            const species = selectSpecie.value;
+            const gender = selectGender.value;
+            const status = selectStatus.value;
+
+            if (species) {
+                visible = filterData(visible, "species", species);
+            }
+            if (gender) {
+                visible = filterData(visible, "gender", gender);
+            }
+            if (status !== null && status !== undefined) {
+                visible = filterData(visible, "status", status);
+            }
+            printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8));
+
+        }
+
+        printTotalCharacters.innerHTML = `O número total de personagens da série é ${(data.results).length}`
+
+        const calculateStatus = () => {
+
+            const newstatus = computeStats(visible, "status", selectStatus.value);
+            printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
+        }
+
+        const calculateSpecies = () => {
+
+            const newstatus = computeStats(visible, "species", selectSpecie.value);
+            printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
+        }
+
+        const calculateGender = () => {
+
+            const newstatus = computeStats(visible, "gender", selectGender.value);
+            printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
+        }
+
+        const searchByName = (e) => {
+            const charactersByName = searchName(data.results, e.target.value);
+            printCardsGeneric(charactersByName);
+        }
+
+
+        function clearFilters(e) {
+            e.preventDefault()
+            visible = data.results
+            selectStatus.options[(selectStatus.selectedIndex = 0)];
+            selectGender.options[(selectGender.selectedIndex = 0)];
+            selectSpecie.options[(selectSpecie.selectedIndex = 0)];
+            btnOrder.options[(btnOrder.selectedIndex = 0)]
+            printCardsGeneric(visible)
+        }
+        //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
+        const imprimirFiltroOrdem = () => {
+            const order = sortAlphabeticalOrder(visible, btnOrder.value)
+            printCardsGeneric(order);
+        }
+
+        showCardsMore.addEventListener("click", () => {
+            finalArray += 8
+            printCardsGeneric(visible.slice(0, finalArray))
+        });
+        showCardsAll.addEventListener("click", () => {
+            printCardsGeneric(visible);
+        });
+
+        selectStatus.addEventListener("change", () => { filter(), calculateStatus() });
+        selectSpecie.addEventListener("change", () => { filter(), calculateSpecies() });
+        selectGender.addEventListener("change", () => { filter(), calculateGender() });
+        btnClear.addEventListener("click", clearFilters);
+        searchInput.addEventListener("keyup", () => { searchByName() });
+        btnOrder.addEventListener("change", () => { imprimirFiltroOrdem() });
+
     }
-
-      
-    const filter = () => { 
-      let allCharacters = data.results;
-      visible = allCharacters;
-      showCards = visible.slice(0, finalArray);
-      const species = selectSpecie.value;
-      const gender = selectGender.value;
-      const status = selectStatus.value;
-
-      if (species){
-        visible = filterData(visible, "species", species);
-        console.log('filter species -----', visible);
-        
-      }
-      if (gender){ 
-        visible = filterData(visible, "gender", gender);
-        console.log('filter gender -----', visible);
-
-      }
-      if (status !== null && status !== undefined){
-        visible = filterData( visible, "status", status);
-        console.log('filter status -----', visible);
-        
-      }
-      printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8)); 
-
-    }
-         
-    printTotalCharacters.innerHTML = `O número total de personagens da série é ${(data.results).length}`
-         
-    const calculateStatus = () => {
-
-      const newstatus = computeStats(visible, "status", selectStatus.value);
-      printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
-    }
-
-    const calculateSpecies = () => {
-
-      const newstatus = computeStats(visible, "species", selectSpecie.value);
-      printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
-    }
-
-    const calculateGender = () =>  {
-
-      const newstatus = computeStats(visible, "gender", selectGender.value);
-      printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
-    }
-
-    const searchByName = (e) => {
-      const charactersByName = searchName(data.results, e.target.value);
-      printCardsGeneric(charactersByName);chea
-    }
-
-    const clearFilters = (e) => {
-      visible = '';
-      printCardsGeneric(visible,e)
-    }
-
-    //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
-    const imprimirFiltroOrdem = (e) => {
-      const order = sortAlphabeticalOrder(visible, e.target.value)
-      printCardsGeneric(order);
-    }
-
-    showCardsMore.addEventListener("click", () => {
-      finalArray += 8
-      printCardsGeneric(visible.slice(0, finalArray))
-    });
-    showCardsAll.addEventListener("click", () => {
-      printCardsGeneric(visible);
-    });
-
-    selectStatus.addEventListener("change", () => {filter(), calculateStatus()});
-    selectSpecie.addEventListener("change", () => {filter(), calculateSpecies()});
-    selectGender.addEventListener("change", () => {filter(), calculateGender()});
-    btnClear.addEventListener("click", () => {clearFilters()});
-    searchInput.addEventListener("keyup", () =>  {searchByName()});
-    btnOrder.addEventListener("change", () => {imprimirFiltroOrdem()});
-
-  }
-  return rootElement
+    return rootElement
 
 };
