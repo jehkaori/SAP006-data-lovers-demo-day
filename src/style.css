@@ -265,6 +265,7 @@ span {
   text-align: center;
   width: 100%;
   bottom: 0;
+  position: inherit;
 }
 
 .footer-about{
@@ -465,16 +466,16 @@ span {
   content: "> ";
 }
 
-a {
+.link-home {
   color: #fff;
   text-decoration: none;
 }
 
-a::before {
+.link-home::before {
   content: "[";
 }
 
-a::after {
+.link-home::after {
   content: "]";
 }
 
