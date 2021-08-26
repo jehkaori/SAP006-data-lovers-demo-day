@@ -79,8 +79,13 @@ export const Home = () => {
 
   rootElement.querySelector('#about').addEventListener('click', (e) => {
     e.preventDefault();
-    navigation('/About')
+    navigation('/about')
   });
+
+  rootElement.querySelector('#portal').addEventListener('click', (e) => {
+    e.preventDefault();
+    navigation('/')
+});
 
 
 
@@ -185,9 +190,9 @@ export const Home = () => {
       printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
     }
 
-    const searchByName = (e) => {
-      const charactersByName = searchName(data.results, e.target.value);
-      printCardsGeneric(charactersByName);chea
+    const searchByName = () => {
+      const charactersByName = searchName(data.results, );
+      printCardsGeneric(charactersByName);
     }
 
     const clearFilters = (e) => {
@@ -197,7 +202,7 @@ export const Home = () => {
 
     //////////////////FUNÇÃO PARA FAZER A FILTRAGEM DE ORDEM
     const imprimirFiltroOrdem = (e) => {
-      const order = sortAlphabeticalOrder(visible, e.target.value)
+      const order = sortAlphabeticalOrder(visible, btnOrder.value)
       printCardsGeneric(order);
     }
 
