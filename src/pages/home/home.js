@@ -184,7 +184,7 @@ export const Home = () => {
     }
 
     const searchByName = () => {
-      const charactersByName = searchName(data.results, );
+      const charactersByName = searchName(data.results, searchInput.value, "name");
       printCardsGeneric(charactersByName);
     }
 
