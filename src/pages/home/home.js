@@ -152,14 +152,16 @@ export const Home = () => {
             if (species) {
                 visible = filterData(visible, "species", species);
             }
+
             if (gender) {
                 visible = filterData(visible, "gender", gender);
             }
-            if (status !== null && status !== undefined) {
+
+            if (status) {
                 visible = filterData(visible, "status", status);
             }
-            printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8));
 
+            printCardsGeneric(visible.slice(0, showCards.length >= 8 ? showCards.length : 8));
         }
 
         printTotalCharacters.innerHTML = `O número total de personagens da série é ${(data.results).length}`
@@ -182,8 +184,8 @@ export const Home = () => {
             printGenderAverage.innerHTML = (`O número de personagens dessa categoria é ${newstatus}`);
         }
 
-        const searchByName = (e) => {
-            const charactersByName = searchName(data.results, e.target.value);
+        const searchByName = () => {
+            const charactersByName = searchName(data.results, searchInput.value, "name");
             printCardsGeneric(charactersByName);
         }
 

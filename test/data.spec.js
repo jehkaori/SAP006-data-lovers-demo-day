@@ -84,20 +84,16 @@ describe("sortAlphabeticalOrder", () => {
 });
 
 describe("computeStats", () => {
-  it("is a object", () => {
-    expect(typeof computeStats).toBe("object");
+  it("is a function", () => {
+    expect(typeof computeStats).toBe("function");
   });
 
-  it("compute.characters should return total characters", () => {
-    const totalCharactersExpected = computeStats.characters(mockData);
-    const totalCharactersResults = 4;
-    expect(totalCharactersExpected).toEqual(totalCharactersResults);
-  });
-
-  it("compute.gender should return gender average", () => {
-    const genderAverageExpected = computeStats.gender(mockData, "Male");
-    const genderAverageResults = 50;
-    expect(genderAverageExpected).toEqual(genderAverageResults);
+  it("computeStats should return total alive characters", () => {
+    const getAllCharacterThatIsAlive = mockData
+      .filter((status) => status.status === 'Alive')
+    const statusExpected = computeStats(getAllCharacterThatIsAlive);
+    const statusResults = 3;
+    expect(statusExpected).toEqual(statusResults);
   });
 });
 
@@ -105,15 +101,11 @@ describe("searchName", () => {
   it("is a function", () => {
     expect(typeof searchName).toBe("function");
   });
-  it("shoul return characters by name", () => {
-    const nameExpected = searchName(mockData, "butt");
-    const nameResults = [
-      {
-        "name": "Hamster In Butt",
-        "status": "Alive",
-        "species": "Animal",
-        "gender": "unknown",
-      }]
-    expect(nameExpected).toEqual(nameResults);
+
+  it('retorna o nome do personagem digitado pelo usuario', () => {
+    const expected = searchName(mockData, 'Rick Sanchez', 'name')
+    console.log();
+    expect(expected[0]).toEqual('Rick Sanchez')
+
   });
-})
+});
