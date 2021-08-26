@@ -92,7 +92,7 @@ export const Home = () => {
     const printTotalCharacters = document.getElementById("totalCharacters");
     const printGenderAverage = document.getElementById("genderAverage");
     // let finalArray = 20;
-    // let visible = data.results
+    
     // const showcards = printCardsGeneric(visible.slice(0, finalArray))
     
      printCardsGeneric(data.results);
@@ -128,7 +128,7 @@ export const Home = () => {
       cards.innerHTML = "";
       cards.innerHTML += genericCards;
     }
-    
+    let visible = data.results
     const filter = () => {
       visible = data.results;
       const species = selectSpecie.value;
