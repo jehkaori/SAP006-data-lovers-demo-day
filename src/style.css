@@ -15,7 +15,8 @@ body {
   padding: 0;
   background-color: var(--background-blue-color);
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   font-family: monospace, sans-serif;
 }
 
@@ -316,11 +317,6 @@ span {
     align-content: center;
   }
 
-  .portal-welcome:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(2);
-  }
-
   header {
     align-items: center;
     width: 100%;
@@ -358,6 +354,20 @@ span {
     position: relative;
     right: 5px;
   }
+
+  .portal-welcome{
+    width: 80%;
+    margin-top: 50%;
+  }
+
+  .portal-welcome:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  .portal-welcome:active {
+    opacity: 0.3;
+  }
 }
 
 @media (max-width: 320px) {
@@ -388,6 +398,20 @@ span {
 
   .menu-filter {
     flex-direction: column;
+  }
+
+  .portal-welcome{
+    width: 80%;
+    margin-top: 50%;
+  }
+
+  .portal-welcome:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  .portal-welcome:active {
+    opacity: 0.3;
   }
 }
 
