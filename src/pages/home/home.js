@@ -4,8 +4,10 @@ import { navigation } from '../../routes/navigation.js';
 export const Home = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML =
-   `
-    <button id="about">Sobre</button>
+   `<div class="header-logo">
+      <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
+      <button id="about" class="about-btn">Sobre a série</button>
+    </div>
       <div class="container-search">
         <input class="search" type="search" placeholder="Pesquisar" id="search" />
       </div>
@@ -13,40 +15,40 @@ export const Home = () => {
           <button class="btn-principais" id="sort-btn" class="sort">Personagens Principais</button>
 
         <select class="status-filtro" name="filter" id="status-filter">
-          <option class="status" value="" selected disabled;>STATUS</option>
-          <option value="Alive">&#128147; Vivo</option>
-          <option value="Dead">&#128128; Morto</option>
-          <option value="unknown">&#128100; Desconhecido</option>
+          <option class="box-option" value="status" selected disabled;>STATUS</option>
+          <option class="box-option" value="Alive">&#128147; Vivo</option>
+          <option class="box-option" value="Dead">&#128128; Morto</option>
+          <option class="box-option" value="unknown">&#128100; Desconhecido</option>
         </select>
 
         <select class="gender-filtro" name="filter" id="gender-filter">
-          <option class="gender" value="" selected disabled;>GÊNERO</option>
-          <option value="Male">&#128102;&#127995; Masculino</option>
-          <option value="Female">&#128103;&#127997; Feminino</option>
-          <option value="unknown">&#128100; Desconhecido</option>
-          <option value="Genderless">&#10068; Sem Gênero</option>
+          <option class="box-option" value="gender" selected disabled;>GÊNERO</option>
+          <option class="box-option" value="Male">&#128102;&#127995; Masculino</option>
+          <option class="box-option" value="Female">&#128103;&#127997; Feminino</option>
+          <option class="box-option" value="unknown">&#128100; Desconhecido</option>
+          <option class="box-option" value="Genderless">&#10068; Sem Gênero</option>
         </select>
 
         <select name="filter" id="specie-filter">
-            <option class="species" value="" >ESPÉCIE</option>
-            <option value="Alien">&#128125; Alien</option>
-            <option value="Animal">&#128054; Animal</option>
-            <option value="Cronenberg">&#128121; Cronenberg</option>
-            <option value="Disease">&#129298; Doença</option>
-            <option value="Human">&#129491;&#127996; Humano</option>
-            <option value="Humanoid">&#129503; Humanóide</option>
-            <option value="Mytholog">&#127993; Mytholog</option>
-            <option value="Parasite">&#128027; Parasita</option>
-            <option value="Poopybutthole">&#128169; Poopybutthole</option>
-            <option value="Robot">&#129302; Robô</option>
-            <option value="Vampire">&#129499; Vampiro</option>
-            <option value="Unknown">&#128100; Indefinido</option>
+            <option class="box-option" value="species" >ESPÉCIE</option>
+            <option class="box-option" value="Alien">&#128125; Alien</option>
+            <option class="box-option" value="Animal">&#128054; Animal</option>
+            <option class="box-option" value="Cronenberg">&#128121; Cronenberg</option>
+            <option class="box-option" value="Disease">&#129298; Doença</option>
+            <option class="box-option" value="Human">&#129491;&#127996; Humano</option>
+            <option class="box-option" value="Humanoid">&#129503; Humanóide</option>
+            <option class="box-option" value="Mytholog">&#127993; Mytholog</option>
+            <option class="box-option" value="Parasite">&#128027; Parasita</option>
+            <option class="box-option" value="Poopybutthole">&#128169; Poopybutthole</option>
+            <option class="box-option" value="Robot">&#129302; Robô</option>
+            <option class="box-option" value="Vampire">&#129499; Vampiro</option>
+            <option class="box-option" value="Unknown">&#128100; Indefinido</option>
         </select>
 
         <select name="filter" id="order-filter">
-            <option value="" selected disabled;>ORDEM</option>
-            <option value="AZ">&#8635; A-Z</option>
-            <option value="ZA">&#8634; Z-A</option>
+            <option class="box-option" value="" selected disabled;>ORDEM</option>
+            <option class="box-option" value="AZ">&#8635; A-Z</option>
+            <option class="box-option" value="ZA">&#8634; Z-A</option>
         </select>
             <button id="btn-clearFilters" type="submit">LIMPAR</button>
       </form>
@@ -61,6 +63,16 @@ export const Home = () => {
         <button id="button-more">MAIS</button>
         <button id="button-all">TUDO</button>
       </div>
+      <footer class="footer"> Desenvolvido pelo Squad Ada Girls:
+        <p class="footer-link">
+          <a style="color:aqua" href="https://github.com/biancacristinaalves" target="_blank">Bianca Alves</a>,
+          <a style="color:aqua" href="https://github.com/carmemilya" target="_blank">Carmen Gozza</a>,
+          <a style="color:aqua" href="https://github.com/gabimendesh" target="_blank">Gabrielly Mendes</a>,
+          <a style="color:aqua" href="https://github.com/jehkaori" target="_blank">Jéssica Inamassu</a>,
+          <a style="color:aqua" href="https://github.com/mayarabezerra" target="_blank">Mayara Bezerra</a>,
+          <a style="color:aqua" href="https://github.com/ThalitaNeves95" target="_blank">Thalita Neves</a>
+        </p>
+      </footer>
   `
 
   fetch("./data/rickandmorty/rickandmorty.json")
@@ -71,7 +83,7 @@ export const Home = () => {
 
   rootElement.querySelector('#about').addEventListener('click', (e) => {
     e.preventDefault();
-    navigation('/About')
+    navigation('/about')
   });
 
 
