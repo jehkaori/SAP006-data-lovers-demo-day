@@ -5,14 +5,14 @@ export const Home = () => {
   const rootElement = document.createElement('div');
   rootElement.innerHTML =
    `<div class="header-logo">
+      <button id="portal" class="portal-btn">PORTAL</button>
       <img class="Logo" src="./img/RickandMorty.png" alt="Rick and Morty">
-      <button id="about" class="about-btn">Sobre a série</button>
-    </div>
+      <button id="about" class="about-btn">SOBRE A SÉRIE</button>
+     </div>
       <div class="container-search">
         <input class="search" type="search" placeholder="Pesquisar" id="search" />
       </div>
       <form class="menu-filter">
-          <button class="btn-principais" id="sort-btn" class="sort">Personagens Principais</button>
 
         <select class="status-filtro" name="filter" id="status-filter">
           <option class="box-option" value="status" selected disabled;>STATUS</option>
@@ -60,8 +60,8 @@ export const Home = () => {
       </div>
       <section class="cards"></section>
       <div class="btnsMS">
-        <button id="button-more">MAIS</button>
-        <button id="button-all">TUDO</button>
+        <button class="more-btn" id="button-more">MAIS</button>
+        <button class="more-btn" id="button-all">TUDO</button>
       </div>
       <footer class="footer"> Desenvolvido pelo Squad Ada Girls:
         <p class="footer-link">
