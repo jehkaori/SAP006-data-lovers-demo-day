@@ -1,52 +1,23 @@
-export const filterData = (data, statusParameter, genderParameter) => {
-  const bothFiltersAreChosen = statusParameter !== "" && genderParameter !== "";
-  const genderParameterIsNotEmpty = genderParameter !== "";
-  const statusParameterIsNotEmpty = statusParameter !== "";
+export const filterData = (data, type, condition) => {
+  const filterResults = data.filter(results => results[type] === condition);
+  return filterResults;
+};
 
-  let filterResults = "";
-
-  if (bothFiltersAreChosen) {
-    filterResults = data.filter(results => results.status === statusParameter && results.gender === genderParameter);
-    return filterResults;
-  }
-
-  if (genderParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.gender === genderParameter);
-    return filterResults;
-  }
-
-  if (statusParameterIsNotEmpty) {
-    filterResults = data.filter(results => results.status === statusParameter);
-    return filterResults;
-  }
-
-  else {
-    return false
+export const sortAlphabeticalOrder = (data, order) => {
+  if (order === "AZ") {
+    return data.sort((a, z) => a.name > z.name ? 1 : -1);
+  } else {
+    return data.sort((a, z) => a.name > z.name ? -1 : 1);
   }
 };
 
-export const sortData = (data) => data.sort((a, b) => b.episode.length - a.episode.length);
+export const computeStats = (data, typeData, condition) => data.reduce((initialType, totalType) => {
+  return initialType + (totalType[typeData] === condition);
+}, 0);
 
-export const computeStats = {
+export const searchName = (data, condition, type) => {
 
-  characters: (data) => (data).length,
-
-  gender: (data, genderParameter) => {
-
-    const totalByGender = data.reduce(function (total, character) {
-      if (character.gender === genderParameter) {
-        return total + 1;
-      }
-      return total;
-    }, 0)
-    const average = Number(((totalByGender / data.length) * 100).toFixed(2));
-    return average;
-  },
-
-};
-
-export const searchName = (data, condition) => {
-  const searchResults = data.filter(n => n.name.toLowerCase().includes(condition.toLowerCase()));
+  const searchResults = data.filter(search => search[type].toLowerCase().includes(condition.toLowerCase()));
   return searchResults;
 }
 
